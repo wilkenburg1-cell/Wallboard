@@ -1,0 +1,1654 @@
+<!doctype html>
+<html lang="de" data-design="buero">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Wallboard">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAEQUlEQVR42u3dPY4cNxCG4RaxChzaqQAniwUW0JV8EAOODeggvpIBA4KuIIUKnCh1YMzfsrvrKz5vvNghi+8UOUV2892HX5834P8YQgBygBwgB8gBcoAcIAfIAXKAHAA5QA6QA+QAOUAOkAPkADlADoAcIAfIAXKAHCAHyAFyoBtPy/b8y+d/bv/j55fXBUP0bp1XMNxlA1f6yzFRiAVF6SnHAU6sYEk3OU7RoqsiTeQ43YmWlsTLUVCLNooMZizewoaZIy7oiSkkT47jyxXLFkjC5HjjOE0ZmwptIMecUdl1MAo2aTk5io9BV0UC5Lg39CcGPaipHeRI3Dtts99bWo7bo1wwxNGN34oXwdKDe3urytZsimaOG+MVsezP7csQzSIppGD+GMzgR8a0ckt0ovc5szo4BK5aCqmTP5625Tc2LwzGHp/4/PKasqU8UtJGp+N3V/tSxJ7BDH7UlWNBM1L88DgkqsqxbNqISB7DuUt9rCjH5a/FOs8uX+7picljOD6+OWqfNa2s9sqDmv0dJhSTi5+yyJdjzbRRs+/DUtSyNCNzrJw2CkZgSBuShwUpkuUwpyx9TNCckhXD4esieVhzgBxIlMOCIy6SwxRr2WFaATlADvSRw2o0MZ7Dysua1LQCcoAcx0zeiy+VBjMspcnxJofWVIQcfo2TQwohB0XIsZ1eZVpBkaEKKYuQY8cqdVdFyDHz7rdmihz0euvEdy48PNKzunN60Iat1+ltPiCFHBNP08qVMaisCDkoQo6+iuSeZhq2LQ7LInExGY4D7qrITpdymFZkEdNK3wJaujrDaYmCKWTFy3jaX4Hw3w7u1NkjYzgctaqWRerEwZpDjiwjh+fbgqI3HOIVgUJySB4pcRu+OvpuQYoQOcreaubGu4DMsZofNfs7VAIsRStmDpNL8dPXQ7LVx6JyFL+ve/Hb2v2URfLbBLsmj+JpI+bd5/38qG9G0mU8nfyIMCNszdHDj6BehF0AmO7HLe2vUx486Cn76V+suAJrYr9S77LPSiGhxo/crYQUP3JzYblp5YGxLzvFpHdhNNiKrJlCGshdN3M8MPBFopzY5kg5HkgMJ4Y7qKlN5Hh44jgs9MWb11yOsmPQVYs8Od6+9pz1vtFFzkeGyTH3t8nxBZWswm6eHKGbLIkHqlPlCFLE2wTFveETGNmZo3IKafBgThM56ljS6WGtbnKcqEi/Z/h6ynGkJY2f62wuh3IFOZbeOyUHNnUOkAPkADlADpADIAfIgUd5OvjzfvltWqnx6193lDh/+vjnrM/9/vcft//xp5/fz/rc37/9u3WtkE7U4i5FJmpxlyITtThLEdMKzpZjp7Rx9T/vlDau/ued0sau/1nmADlADpAD5AA5QI7t4WrmxP98VzVzm1cE269UpQiGbcUDxvZW7K3AmgPkADkAcoAcIAfIAXKAHCAHyAFygBwAOXCZH3axAD/5DYBIAAAAAElFTkSuQmCC">
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAEQUlEQVR42u3dPY4cNxCG4RaxChzaqQAniwUW0JV8EAOODeggvpIBA4KuIIUKnCh1YMzfsrvrKz5vvNghi+8UOUV2892HX5834P8YQgBygBwgB8gBcoAcIAfIAXKAHAA5QA6QA+QAOUAOkAPkADlADoAcIAfIAXKAHCAHyAFyoBtPy/b8y+d/bv/j55fXBUP0bp1XMNxlA1f6yzFRiAVF6SnHAU6sYEk3OU7RoqsiTeQ43YmWlsTLUVCLNooMZizewoaZIy7oiSkkT47jyxXLFkjC5HjjOE0ZmwptIMecUdl1MAo2aTk5io9BV0UC5Lg39CcGPaipHeRI3Dtts99bWo7bo1wwxNGN34oXwdKDe3urytZsimaOG+MVsezP7csQzSIppGD+GMzgR8a0ckt0ovc5szo4BK5aCqmTP5625Tc2LwzGHp/4/PKasqU8UtJGp+N3V/tSxJ7BDH7UlWNBM1L88DgkqsqxbNqISB7DuUt9rCjH5a/FOs8uX+7picljOD6+OWqfNa2s9sqDmv0dJhSTi5+yyJdjzbRRs+/DUtSyNCNzrJw2CkZgSBuShwUpkuUwpyx9TNCckhXD4esieVhzgBxIlMOCIy6SwxRr2WFaATlADvSRw2o0MZ7Dysua1LQCcoAcx0zeiy+VBjMspcnxJofWVIQcfo2TQwohB0XIsZ1eZVpBkaEKKYuQY8cqdVdFyDHz7rdmihz0euvEdy48PNKzunN60Iat1+ltPiCFHBNP08qVMaisCDkoQo6+iuSeZhq2LQ7LInExGY4D7qrITpdymFZkEdNK3wJaujrDaYmCKWTFy3jaX4Hw3w7u1NkjYzgctaqWRerEwZpDjiwjh+fbgqI3HOIVgUJySB4pcRu+OvpuQYoQOcreaubGu4DMsZofNfs7VAIsRStmDpNL8dPXQ7LVx6JyFL+ve/Hb2v2URfLbBLsmj+JpI+bd5/38qG9G0mU8nfyIMCNszdHDj6BehF0AmO7HLe2vUx486Cn76V+suAJrYr9S77LPSiGhxo/crYQUP3JzYblp5YGxLzvFpHdhNNiKrJlCGshdN3M8MPBFopzY5kg5HkgMJ4Y7qKlN5Hh44jgs9MWb11yOsmPQVYs8Od6+9pz1vtFFzkeGyTH3t8nxBZWswm6eHKGbLIkHqlPlCFLE2wTFveETGNmZo3IKafBgThM56ljS6WGtbnKcqEi/Z/h6ynGkJY2f62wuh3IFOZbeOyUHNnUOkAPkADlADpADIAfIgUd5OvjzfvltWqnx6193lDh/+vjnrM/9/vcft//xp5/fz/rc37/9u3WtkE7U4i5FJmpxlyITtThLEdMKzpZjp7Rx9T/vlDau/ued0sau/1nmADlADpAD5AA5QI7t4WrmxP98VzVzm1cE269UpQiGbcUDxvZW7K3AmgPkADkAcoAcIAfIAXKAHCAHyAFygBwAOXCZH3axAD/5DYBIAAAAAElFTkSuQmCC">
+<title>Wallboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,600;1,6..72,700&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans+Condensed:wght@400;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Inter:wght@400;500;600;700&family=Atkinson+Hyperlegible:wght@400;700&family=Roboto:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+/* Layout: Kopfzeile (Uhr, Datum, „Heute wichtig“) über einem 12-Spalten-Raster aus Kacheln, deren Breite, Höhe und Reihenfolge frei wählbar sind. */
+:root{
+  /* Design „Büro“ (Standard): helles Blaugrau, weiße Karten, kursive Serifen-Titel */
+  --paper:#e3e6eb; --sheet:#f8f9fb; --ink:#1b1e23; --muted:#5d646e; --rule:#c6ccd5; --signal:#a32f28; --soft:#e8ebef; --field:#ffffff;
+  --ok:#2d7a4b; --warn:#b26b00; --c-tram:#2449a8; --c-bus:#6a3fa0; --c-sbahn:#2d7a4b; --c-rail:#8a2b2b;
+  --v1:#c4504a; --v2:#3f8fb5; --v3:#7a8b2f;
+  --f-text:"Newsreader",Georgia,"Times New Roman",serif;
+  --f-title:"Newsreader",Georgia,serif; --title-style:italic; --title-weight:700; --title-case:none;
+  --f-data:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --f-clock:"Newsreader",Georgia,serif; --clock-weight:700;
+  --bw:1px; --gap:14px; --overlap:0; --radius:12px;
+  --shadow:0 1px 0 rgba(20,25,35,.06),0 8px 20px -14px rgba(20,25,35,.35);
+  --map-filter:saturate(.75);
+  --scale:1;
+  color-scheme:light;
+}
+/* Design „Zeitung“: E-Paper-Grau, Haarlinien, keine Abstände */
+:root[data-design="zeitung"]{
+  --paper:#ebeae5; --sheet:#f6f6f2; --ink:#1a1b1d; --muted:#65676b; --rule:#2a2b2e; --signal:#a8231c; --soft:#d9d8d2;
+  --c-tram:#1a1b1d; --c-bus:#55565a; --c-sbahn:#1a1b1d; --c-rail:#a8231c;
+  --f-title:"UnifrakturMaguntia",Georgia,serif; --title-style:normal; --title-weight:400;
+  --gap:0px; --overlap:0 -1px -1px 0; --radius:0px; --shadow:none; --map-filter:grayscale(.4) contrast(1.05);
+}
+/* Design „E-Ink“: reines Schwarzweiß */
+:root[data-design="eink"]{
+  --paper:#ffffff; --sheet:#ffffff; --ink:#000; --muted:#444; --rule:#000; --signal:#000; --soft:#d0d0d0;
+  --ok:#000; --warn:#000; --c-tram:#000; --c-bus:#000; --c-sbahn:#000; --c-rail:#000; --v1:#000; --v2:#555; --v3:#999;
+  --f-title:"Newsreader",Georgia,serif; --title-style:normal; --title-weight:700; --title-case:uppercase;
+  --bw:2px; --gap:8px; --radius:0px; --shadow:none; --map-filter:grayscale(1) contrast(1.3);
+}
+/* Design „Nachtausgabe“: dunkel */
+:root[data-design="nacht"]{
+  --paper:#111316; --sheet:#1a1d21; --ink:#e8e5dd; --muted:#9b9890; --rule:#3a3e44; --signal:#ff7d6b; --soft:#262a2f; --field:#111316;
+  --ok:#6fcf8e; --warn:#f2b54a; --c-tram:#5d8bff; --c-bus:#b18cf0; --c-sbahn:#6fcf8e; --c-rail:#ff7d6b;
+  --v1:#ff8a80; --v2:#7cc4e6; --v3:#c3d36a;
+  --shadow:none; --map-filter:none; color-scheme:dark;
+}
+/* Design „Bahnsteig“: Gelb und Weiß auf Blau */
+:root[data-design="bahnhof"]{
+  --paper:#08223d; --sheet:#0d2e52; --ink:#fff; --muted:#a9bfd8; --rule:#3d6390; --signal:#ffd23f; --soft:#1d4470; --field:#08223d;
+  --ok:#7ee0a0; --warn:#ffd23f; --c-tram:#ffd23f; --c-bus:#ffffff; --c-sbahn:#7ee0a0; --c-rail:#ff8a7a;
+  --v1:#ffd23f; --v2:#7ee0f0; --v3:#ffffff;
+  --f-text:"IBM Plex Sans Condensed","Arial Narrow",Arial,sans-serif; --f-title:var(--f-text); --title-style:normal; --title-case:uppercase;
+  --f-clock:"IBM Plex Mono",monospace; --clock-weight:600;
+  --gap:6px; --radius:3px; --shadow:none; --map-filter:none; color-scheme:dark;
+}
+/* Design „Klar“: modern, serifenlos, sehr rund */
+:root[data-design="klar"]{
+  --paper:#e9eef2; --sheet:#ffffff; --ink:#1b2530; --muted:#62707e; --rule:#d5dde4; --signal:#d4442a; --soft:#eef2f5;
+  --f-text:"Bricolage Grotesque",system-ui,sans-serif; --f-title:var(--f-text); --title-style:normal; --title-weight:800;
+  --f-clock:var(--f-text); --clock-weight:800; --radius:20px; --gap:16px;
+}
+/* Design „Apple Hell“: wie iPhone-Widgets – grauer Grund, weiße Karten ohne Rahmen, Systemschrift */
+:root[data-design="applelight"]{
+  --paper:#f2f2f7; --sheet:#ffffff; --ink:#1c1c1e; --muted:#8a8a8e; --rule:#e3e3e8; --signal:#ff3b30; --soft:#f2f2f7; --field:#ffffff;
+  --ok:#34c759; --warn:#ff9500; --c-tram:#007aff; --c-bus:#af52de; --c-sbahn:#34c759; --c-rail:#ff3b30;
+  --v1:#ff3b30; --v2:#007aff; --v3:#34c759;
+  --f-text:-apple-system,BlinkMacSystemFont,"SF Pro Text","Inter","Helvetica Neue",Arial,sans-serif; --f-title:var(--f-text); --f-data:var(--f-text); --f-clock:var(--f-text);
+  --title-style:normal; --title-weight:700; --clock-weight:700;
+  --tile-border:transparent; --radius:22px; --gap:16px;
+  --shadow:0 1px 2px rgba(0,0,0,.04),0 10px 30px -12px rgba(0,0,0,.18); --map-filter:none;
+}
+/* Design „Apple Dunkel“: schwarzer Grund, dunkelgraue Karten */
+:root[data-design="appledark"]{
+  --paper:#000000; --sheet:#1c1c1e; --ink:#f5f5f7; --muted:#98989d; --rule:#38383a; --signal:#ff453a; --soft:#2c2c2e; --field:#2c2c2e;
+  --ok:#30d158; --warn:#ff9f0a; --c-tram:#0a84ff; --c-bus:#bf5af2; --c-sbahn:#30d158; --c-rail:#ff453a;
+  --v1:#ff453a; --v2:#0a84ff; --v3:#30d158;
+  --f-text:-apple-system,BlinkMacSystemFont,"SF Pro Text","Inter","Helvetica Neue",Arial,sans-serif; --f-title:var(--f-text); --f-data:var(--f-text); --f-clock:var(--f-text);
+  --title-style:normal; --title-weight:700; --clock-weight:700;
+  --tile-border:transparent; --radius:22px; --gap:16px; --shadow:none; --map-filter:none; color-scheme:dark;
+}
+/* Schriftart-Auswahl: überschreibt die Schrift des Designs */
+:root[data-font="arial"]{--f-text:Arial,Helvetica,sans-serif; --f-title:var(--f-text); --f-clock:var(--f-text); --title-style:normal}
+:root[data-font="apple"]{--f-text:-apple-system,BlinkMacSystemFont,"SF Pro Text","Inter","Helvetica Neue",Arial,sans-serif; --f-title:var(--f-text); --f-clock:var(--f-text); --title-style:normal}
+:root[data-font="verdana"]{--f-text:Verdana,Geneva,Tahoma,sans-serif; --f-title:var(--f-text); --f-clock:var(--f-text); --title-style:normal}
+:root[data-font="lesbar"]{--f-text:"Atkinson Hyperlegible",Verdana,sans-serif; --f-title:var(--f-text); --f-clock:var(--f-text); --title-style:normal}
+:root[data-font="roboto"]{--f-text:"Roboto",Arial,sans-serif; --f-title:var(--f-text); --f-clock:var(--f-text); --title-style:normal}
+:root[data-font="georgia"]{--f-text:Georgia,"Times New Roman",serif; --f-title:var(--f-text); --f-clock:var(--f-text); --title-style:italic}
+:root[data-font="zeitung"]{--f-text:"Newsreader",Georgia,serif; --f-title:var(--f-text); --f-clock:var(--f-text); --title-style:italic}
+:root[data-font="schreibmaschine"]{--f-text:"IBM Plex Mono",Consolas,monospace; --f-title:var(--f-text); --f-clock:var(--f-text); --title-style:normal}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{font-size:calc(16px * var(--scale))}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-text);font-size:1rem;line-height:1.4;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:14px 20px}
+.page{max-width:2200px;margin:0 auto;overflow-x:clip}
+button,input,textarea,select{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
+.mono{font-family:var(--f-data);font-variant-numeric:tabular-nums}
+.muted{color:var(--muted)}
+.sig{color:var(--signal)}
+.ex{font-family:var(--f-data);font-size:.66rem;text-transform:uppercase;letter-spacing:.08em;border:1px solid var(--muted);color:var(--muted);padding:0 5px;border-radius:4px;vertical-align:middle}
+svg.i{width:1.25rem;height:1.25rem;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+
+/* ===== Kopfzeile ===== */
+.top{display:grid;grid-template-columns:auto 1fr auto;gap:10px 24px;align-items:center}
+.clock{font-family:var(--f-clock);font-weight:var(--clock-weight);font-size:clamp(3rem,5.4vw,5rem);line-height:.9;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+[data-design="bahnhof"] .clock{color:var(--signal)}
+.date b{display:block;font-family:var(--f-title);font-style:var(--title-style);font-weight:700;font-size:1.6rem;line-height:1.1}
+.date span{font-family:var(--f-data);color:var(--muted);font-size:.95rem}
+.tools{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;align-items:center}
+.tools .mode{font-family:var(--f-data);font-size:.8rem;border:var(--bw) solid var(--rule);border-radius:999px;padding:5px 12px;background:var(--sheet);white-space:nowrap}
+.tools .mode i{display:inline-block;width:.6rem;height:.6rem;border-radius:50%;background:var(--ok);margin-right:6px}
+.upd{display:flex;align-items:center;gap:10px;background:var(--sheet);border:var(--bw) solid var(--rule);border-radius:calc(var(--radius) * .7);box-shadow:var(--shadow);padding:5px 6px 5px 10px;text-align:left}
+.upd b{display:block;font-size:1rem;line-height:1.15}
+.upd small{display:block;color:var(--muted);font-size:.8rem}
+.upd .star{display:grid;place-items:center;width:2rem;height:2rem;border-radius:50%;background:var(--ink);color:var(--sheet);flex:none}
+.upd .star svg{width:1.1rem;height:1.1rem}
+.upd .close{border:0;background:none;color:var(--muted);font-size:1.2rem;padding:0 6px}
+.cl h3{margin:14px 0 4px;font-size:1.05rem}
+.cl h3 small{font-weight:400;color:var(--muted);font-size:.85rem;margin-left:6px}
+.cl ul{margin:0;padding-left:1.2rem}
+.cl li{margin:2px 0}
+.foot a,.foot button.linkish{color:inherit;background:none;border:0;padding:0;text-decoration:underline;cursor:pointer;font-size:inherit}
+.ibtn{display:inline-grid;place-items:center;min-width:2.75rem;height:2.75rem;padding:0 .6rem;background:var(--sheet);border:var(--bw) solid var(--rule);border-radius:calc(var(--radius) * .7);box-shadow:var(--shadow);font-family:var(--f-data);font-weight:600;font-size:.95rem}
+.ibtn:hover,.ibtn[aria-pressed="true"]{background:var(--ink);color:var(--sheet)}
+
+.setup-hint{margin-top:10px;padding:10px 14px;border-radius:calc(var(--radius) * .6);background:color-mix(in srgb,var(--warn) 14%,var(--sheet));border:1px solid var(--warn);font-size:.95rem}
+.strip{display:grid;grid-template-columns:9.5rem repeat(4,minmax(0,1fr)) minmax(0,1fr);gap:10px;margin-top:12px;align-items:stretch}
+.strip .lbl b{display:block;font-family:var(--f-title);font-style:var(--title-style);font-weight:var(--title-weight);text-transform:var(--title-case);font-size:1.5rem;line-height:1.05}
+.strip .lbl span{font-size:.88rem;color:var(--muted)}
+.ev{background:var(--sheet);border:var(--bw) solid var(--rule);border-radius:calc(var(--radius) * .8);padding:8px 12px;min-width:0;box-shadow:var(--shadow);display:grid;align-content:start;gap:2px}
+.ev .t{font-family:var(--f-data);font-size:1rem;color:var(--muted);display:flex;align-items:center;gap:6px}
+.ev .t svg{width:.95rem;height:.95rem}
+.ev .n{font-weight:700;font-size:1.15rem;line-height:1.2;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.ev .l{font-size:.85rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ev.past{opacity:.55}.ev.past .n{text-decoration:line-through}
+.ev.now{border-color:var(--signal);box-shadow:0 0 0 1px var(--signal)}
+.ev.now .t{color:var(--signal);font-weight:600}
+.ev.free{border-style:dashed;box-shadow:none;background:transparent;place-content:center;color:var(--muted);font-size:1rem;text-align:center}
+.ev.count{background:transparent;border-style:dashed;box-shadow:none}
+.ev.count.bin{border-style:solid;border-color:var(--warn);box-shadow:0 0 0 1px var(--warn)}
+.ev.count .n{-webkit-line-clamp:4}
+.ev.count .bin-line{color:var(--warn);font-weight:700}
+/* Losgeh-Ampel */
+.ampel{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:.86rem;line-height:1.3;color:var(--muted);margin:2px 0 6px}
+.ampel .light{flex:none;width:.65rem;height:.65rem;border-radius:50%;background:var(--muted)}
+.ampel b{color:var(--ink);font-weight:700}
+.ampel .ln{height:1.15rem;min-width:1.9rem;font-size:.7rem}
+.ampel.green .light{background:var(--ok)}
+.ampel.yellow .light{background:var(--warn)}.ampel.yellow b{color:var(--warn)}
+.ampel.red .light{background:var(--signal);animation:blink 1s steps(2) infinite}.ampel.red b{color:var(--signal)}
+@keyframes blink{50%{opacity:.25}}
+#disrupt .alert{font-weight:600;font-size:.9rem;margin-top:8px}
+#disrupt .alert small{font-weight:400}
+#disrupt .ln{height:1.3rem;min-width:2rem;font-size:.75rem;vertical-align:1px}
+.ev.count .n{font-size:1rem}
+
+/* ===== Raster ===== */
+.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--gap);grid-auto-flow:row dense;margin-top:14px}
+.tile{background:var(--sheet);padding:14px 16px 16px;border:var(--bw) solid var(--tile-border,var(--rule));border-radius:var(--radius);box-shadow:var(--shadow);margin:var(--overlap);min-width:0;position:relative;grid-column:span 4;display:flex;flex-direction:column}
+/* Breite in Zwölfteln (--span), Höhe in Stufen zu je 5rem (--rows); Inhalt darf eine Kachel größer machen */
+.grid{grid-auto-rows:2.5rem}
+.tile{overflow:hidden}
+.tile-body{overflow-y:auto;overflow-x:hidden;scrollbar-width:thin}
+.tile[data-span]{grid-column:span var(--span,4);grid-row:span var(--rows,1)}
+.rz{display:none}
+.arranging .rz{display:grid;place-items:center;position:absolute;right:-2px;bottom:-2px;width:2.4rem;height:2.4rem;z-index:5;cursor:nwse-resize;touch-action:none;background:var(--signal);color:var(--sheet);border-radius:calc(var(--radius) * .6) 0 calc(var(--radius) * .6) 0}
+.rz svg{width:1.2rem;height:1.2rem}
+.tile.resizing{outline-style:solid !important;z-index:4}
+.sizehint{position:absolute;right:2.8rem;bottom:.5rem;z-index:5;font-family:var(--f-data);font-size:.85rem;background:var(--ink);color:var(--sheet);padding:2px 8px;border-radius:6px;pointer-events:none}
+.tile-body{display:flex;flex-direction:column;flex:1;min-height:0}
+.tile-body > *{flex-shrink:0}
+.th{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;border-bottom:var(--bw) solid var(--rule);padding-bottom:8px;margin-bottom:10px}
+.th h2{margin:0;font-family:var(--f-title);font-style:var(--title-style);font-weight:var(--title-weight);text-transform:var(--title-case);font-size:1.55rem;line-height:1.1;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.chip{font-family:var(--f-title);font-style:var(--title-style);font-weight:600;font-size:1rem;background:var(--soft);border-radius:999px;padding:2px 12px;text-transform:none}
+.th .right{font-size:.85rem;color:var(--muted);text-align:right}
+.sbtn{background:var(--sheet);border:var(--bw) solid var(--rule);border-radius:calc(var(--radius) * .5);padding:2px 10px;font-size:.88rem;font-weight:600}
+.sbtn:hover{background:var(--ink);color:var(--sheet)}
+.note{font-size:.85rem;color:var(--muted);font-style:italic}
+.err{font-size:.9rem;color:var(--signal)}
+.err a{color:inherit}
+.sub{font-family:var(--f-data);font-size:.74rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:14px 0 6px;font-weight:600}
+
+/* Anordnen-Modus */
+.tile-bar{display:none}
+.arranging .tile{outline:2px dashed var(--signal);outline-offset:-6px;cursor:grab}
+.arranging .tile.dragging{opacity:.35}
+.arranging .tile.drop-before{box-shadow:inset 8px 0 0 var(--signal)}
+.arranging .tile.drop-after{box-shadow:inset -8px 0 0 var(--signal)}
+.arranging .tile-body{pointer-events:none;opacity:.4;overflow:hidden}
+.arranging .tile-bar{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:10px;padding:8px;background:var(--ink);color:var(--sheet);border-radius:calc(var(--radius) * .6)}
+.tile-bar strong{font-family:var(--f-data);font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;margin-right:auto}
+.tile-bar button{background:var(--sheet);color:var(--ink);border:0;border-radius:6px;padding:4px 9px;font-size:.8rem;font-family:var(--f-data)}
+.tile-bar button:disabled{opacity:.4}
+.tile-bar .sz{font-family:var(--f-data);font-size:.75rem;opacity:.85}
+#arrangeBar{display:none;margin-top:12px;padding:10px 14px;border:2px dashed var(--signal);border-radius:var(--radius);font-size:.95rem;gap:8px 14px;flex-wrap:wrap;align-items:center;background:var(--sheet)}
+.arranging #arrangeBar{display:flex}
+#arrangeBar button{border:var(--bw) solid var(--ink);background:var(--sheet);border-radius:8px;padding:4px 12px}
+#arrangeBar button.primary{background:var(--ink);color:var(--sheet)}
+
+/* ===== Abfahrten ===== */
+.dirs{font-size:.85rem;color:var(--muted);margin:-4px 0 8px}
+.picker{display:grid;gap:6px;background:var(--soft);border-radius:calc(var(--radius) * .6);padding:10px 12px;margin-bottom:10px;font-size:.92rem}
+.picker select{background:var(--field);border:var(--bw) solid var(--rule);border-radius:6px;padding:4px 6px}
+.pk-l{font-weight:700;font-size:.85rem}
+.pk-dirs{display:flex;flex-direction:column;gap:4px}
+.pk-dirs label{display:flex;gap:8px;align-items:center}
+.picker .sbtn{justify-self:start}
+.dirs .linkish,.linkish{background:none;border:0;padding:0;color:inherit;text-decoration:underline;cursor:pointer;font:inherit}
+.switch{display:inline-flex;align-items:center;gap:6px;font-size:.82rem;color:var(--muted);cursor:pointer;user-select:none}
+.switch input{position:absolute;opacity:0;pointer-events:none}
+.switch .sl{width:2.1rem;height:1.2rem;border-radius:999px;background:var(--rule);position:relative;transition:background .15s}
+.switch .sl::after{content:"";position:absolute;top:2px;left:2px;width:calc(1.2rem - 4px);height:calc(1.2rem - 4px);border-radius:50%;background:var(--sheet);box-shadow:0 1px 2px rgba(0,0,0,.25);transition:transform .15s}
+.switch input:checked + .sl{background:var(--ok)}
+.switch input:checked + .sl::after{transform:translateX(.9rem)}
+.switch input:focus-visible + .sl{outline:2px solid var(--signal);outline-offset:2px}
+.route + .route{margin-top:12px;border-top:1px dotted var(--rule);padding-top:4px}
+.route .sub{margin-top:10px}
+.radar-frame{flex:1;min-height:9rem;border:0;width:100%;background:var(--soft)}
+.deps{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.deps li{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;background:var(--soft);border-radius:calc(var(--radius) * .6);padding:6px 10px}
+.deps .dir{font-size:1.1rem;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.deps .min{font-family:var(--f-data);font-weight:600;font-size:1.1rem;white-space:nowrap;font-variant-numeric:tabular-nums}
+.deps .min small{font-size:.75rem;color:var(--signal);margin-left:4px}
+.deps .cancel{color:var(--signal);text-decoration:line-through}
+.ln{display:inline-grid;place-items:center;min-width:3.4rem;height:1.6rem;padding:0 6px;border-radius:6px;font-family:var(--f-data);font-weight:600;font-size:.88rem;color:#fff;background:var(--c-rail)}
+.ln.tram{background:var(--c-tram)}.ln.bus{background:var(--c-bus)}.ln.sbahn{background:var(--c-sbahn)}
+[data-design="bahnhof"] .ln{color:#08223d}
+[data-design="eink"] .ln.bus{background:#fff;color:#000;border:2px solid #000}
+.chain{display:flex;align-items:center;gap:3px;flex-wrap:wrap}
+.chain .ln{min-width:2.2rem;height:1.4rem;font-size:.78rem}
+.chain .sep{color:var(--muted);font-size:.8rem}
+.jr{border-radius:calc(var(--radius) * .6);background:var(--soft);margin-top:6px}
+.jr summary{list-style:none;display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:7px 10px;cursor:pointer}
+.jr summary::-webkit-details-marker{display:none}
+.jr .dep b{display:block;font-family:var(--f-data);font-size:1.3rem;line-height:1;font-variant-numeric:tabular-nums}
+.jr .dep small{font-family:var(--f-data);font-size:.75rem;color:var(--muted)}
+.jr .arr{font-family:var(--f-data);font-size:.85rem;color:var(--muted);white-space:nowrap}
+.jr .arr b{font-size:1.15rem;color:var(--ink);font-variant-numeric:tabular-nums}
+.jr .late{color:var(--signal);font-weight:600}
+.legs{list-style:none;margin:0;padding:2px 12px 10px 22px;font-size:.88rem;border-top:1px dotted var(--rule)}
+.legs li{padding:3px 0}
+.inline-form{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:.88rem}
+.inline-form input,.inline-form select{background:var(--field);border:var(--bw) solid var(--rule);border-radius:6px;padding:3px 6px;min-width:0}
+.inline-form button{background:var(--sheet);border:var(--bw) solid var(--ink);border-radius:6px;padding:2px 10px;font-size:.85rem}
+.inline-form button.primary{background:var(--ink);color:var(--sheet)}
+.src-line{font-size:.75rem;color:var(--muted);text-align:right;margin-top:auto;padding-top:10px}
+
+/* ===== Nachrichten ===== */
+.newsbox{flex:1;display:flex;flex-direction:column;gap:8px}
+.ni{background:var(--soft);border-radius:calc(var(--radius) * .6);padding:10px 14px}
+.ni a{color:var(--ink);text-decoration:none;font-weight:700;font-size:1.3rem;line-height:1.2}
+.ni a:hover{text-decoration:underline}
+.ni .meta{font-family:var(--f-data);font-size:.78rem;color:var(--muted);margin-left:6px;white-space:nowrap}
+.ni p{margin:4px 0 0;color:var(--muted);font-size:.95rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.dots{display:flex;justify-content:center;gap:6px;margin-top:auto;padding-top:10px}
+.dots button{width:.6rem;height:.6rem;border-radius:50%;border:0;padding:0;background:var(--rule)}
+.dots button[aria-current="true"]{background:var(--ink)}
+
+/* ===== Monat ===== */
+.navbtns{display:flex;gap:6px;align-items:center}
+.month{width:100%;border-collapse:separate;border-spacing:4px 3px;table-layout:fixed;font-variant-numeric:tabular-nums}
+.month th{font-family:var(--f-data);font-size:.78rem;color:var(--muted);font-weight:600;padding:0 0 4px}
+.month td{text-align:center;height:2.2rem;font-size:1.15rem;font-weight:700;position:relative;border-radius:8px}
+.month td.kw{font-family:var(--f-data);font-size:.78rem;font-weight:400;color:var(--muted)}
+.month td.out{color:var(--rule);font-weight:400}
+.month td.we{color:var(--muted)}
+.month td.hol{color:var(--signal)}
+.month td.cw{background:var(--soft)}
+.month td.fer{background:color-mix(in srgb,var(--ok) 15%,transparent)}
+.month td.fer.cw{background:color-mix(in srgb,var(--ok) 24%,var(--soft))}
+.hlist .fer::before{content:"";display:inline-block;width:.7rem;height:.7rem;border-radius:3px;margin-right:6px;vertical-align:-1px;background:color-mix(in srgb,var(--ok) 40%,transparent)}
+.month td.today{background:var(--signal);color:var(--sheet)}
+[data-design="bahnhof"] .month td.today{color:#08223d}
+.month td .vb{position:absolute;left:2px;right:2px;bottom:1px;height:3px;border-radius:2px}
+.month td .ed{position:absolute;right:6px;top:5px;width:5px;height:5px;border-radius:50%;background:var(--ink)}
+.mlegend{display:grid;grid-template-columns:1fr auto;gap:2px 12px;margin-top:8px;font-size:.92rem;align-items:baseline}
+.mlegend i{display:inline-block;width:.8rem;height:.8rem;border-radius:3px;margin-right:8px;vertical-align:-1px}
+.mlegend .when{color:var(--muted);font-size:.85rem;text-align:right}
+.hlist{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:.88rem;margin-top:6px;color:var(--muted)}
+.hlist b{color:var(--signal);font-weight:600}
+
+/* ===== Wetter ===== */
+.now{display:flex;align-items:baseline;gap:10px;text-align:right}
+.now .tt{font-family:var(--f-title);font-weight:700;font-size:2rem;line-height:1;color:var(--ink);font-style:normal}
+.now small{font-size:.8rem;line-height:1.2;color:var(--muted);font-style:italic}
+.mapwrap{flex:1 1 12rem;min-height:9rem;display:flex;flex-direction:column;position:relative;border-radius:calc(var(--radius) * .7);overflow:hidden;border:var(--bw) solid var(--rule)}
+#radar{flex:1;min-height:9rem;filter:var(--map-filter);background:var(--soft)}
+.play{position:absolute;top:8px;right:8px;z-index:500;background:var(--c-tram);color:#fff;border:0;border-radius:6px;padding:5px 12px;font-weight:600;font-size:.9rem}
+[data-design="bahnhof"] .play{color:#08223d}
+.timeline{position:absolute;left:8px;right:8px;bottom:8px;z-index:500;display:flex;align-items:center;gap:8px;background:color-mix(in srgb,var(--sheet) 88%,transparent);border-radius:999px;padding:3px 12px}
+.timeline input{flex:1;accent-color:var(--c-tram)}
+.timeline span{font-family:var(--f-data);font-size:.85rem;font-weight:600;min-width:3.2rem}
+.headline{display:flex;gap:10px;align-items:center;background:var(--soft);border-radius:calc(var(--radius) * .6);padding:8px 12px;margin-top:10px;font-weight:700;font-size:1.05rem;line-height:1.25}
+.headline svg{flex:none;width:1.7rem;height:1.7rem;color:var(--c-tram)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;align-items:center}
+.wtl{list-style:none;margin:0;padding:0;width:100%;display:grid;gap:6px}
+.wtl li{display:grid;grid-template-columns:auto 1fr auto auto auto;gap:12px;align-items:center;background:var(--soft);border-radius:calc(var(--radius) * .6);padding:6px 10px;border-left:5px solid var(--ok)}
+.wtl li.mid{border-left-color:var(--warn)}.wtl li.hi{border-left-color:var(--signal)}
+.wtl .tm{font-family:var(--f-data);font-size:1.3rem;font-variant-numeric:tabular-nums}
+.wtl .lb{min-width:0;font-weight:600;line-height:1.2}
+.wtl .lb small{display:block;font-weight:400;color:var(--muted);font-size:.8rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wtl .loc{background:none;border:0;padding:0;color:inherit;text-decoration:underline dotted;cursor:pointer;font:inherit}
+.wtl .tg{font-family:var(--f-data);font-size:.66rem;text-transform:uppercase;color:var(--muted);font-weight:400}
+.wtl .rp{text-align:right;white-space:nowrap;font-size:.95rem}
+.wtl .rp b{font-size:1.25rem}
+.wtl li.mid .rp b{color:var(--warn)}.wtl li.hi .rp b{color:var(--signal)}
+.wtl .bar{display:block;height:4px;width:5.5rem;background:var(--rule);border-radius:2px;margin:3px 0 0 auto;overflow:hidden}
+.wtl .bar i{display:block;height:100%;background:var(--ok)}
+.wtl li.mid .bar i{background:var(--warn)}.wtl li.hi .bar i{background:var(--signal)}
+.wtl .tt{font-weight:700;font-size:1.15rem;min-width:2.2rem;text-align:right}
+.wtl .x{border:0;background:none;color:var(--muted);font-size:1.1rem;padding:0 2px}
+.wtl .x:hover{color:var(--signal)}
+.tchip{display:inline-flex;align-items:center;gap:6px;font-family:var(--f-data);font-size:.9rem;border:var(--bw) solid var(--rule);border-radius:999px;padding:2px 4px 2px 10px;background:var(--sheet)}
+.tchip .p{border-radius:999px;padding:0 7px;color:#fff;font-weight:600;font-size:.82rem;background:var(--ok)}
+.tchip .p.mid{background:var(--warn)}.tchip .p.hi{background:var(--signal)}
+[data-design="bahnhof"] .tchip .p{color:#08223d}
+.tchip .x{border:0;background:none;color:var(--muted);padding:0 4px;font-size:1rem;line-height:1}
+.tchip .x:hover{color:var(--signal)}
+.tchip .tg{font-size:.68rem;color:var(--muted);text-transform:uppercase}
+.addt{border:var(--bw) dashed var(--muted);background:none;border-radius:999px;padding:2px 10px;font-size:.88rem;color:var(--muted)}
+.hours{display:grid;grid-template-columns:repeat(12,1fr);gap:4px;margin-top:12px;align-items:end;height:2.6rem}
+.hours div{border-radius:2px;background:var(--ok);min-height:3px}
+.hours div.mid{background:var(--warn)}.hours div.hi{background:var(--signal)}
+.hx{display:grid;grid-template-columns:repeat(12,1fr);gap:4px;font-family:var(--f-data);font-size:.72rem;color:var(--muted);text-align:center;margin-top:3px}
+.hx .cur{color:var(--ink);font-weight:600}
+.facts{display:flex;flex-wrap:wrap;gap:4px 16px;margin-top:10px;font-size:.92rem}
+.facts span::before{content:"";display:inline-block;width:.55rem;height:.55rem;border-radius:50%;background:var(--ok);margin-right:6px;vertical-align:1px}
+.facts span.mid::before{background:var(--warn)}.facts span.hi::before{background:var(--signal)}
+.alert{display:flex;gap:8px;align-items:flex-start;margin-top:8px;font-weight:700;font-size:1rem}
+.alert svg{flex:none;width:1.4rem;height:1.4rem;color:var(--warn)}
+.alert small{display:block;font-weight:400;color:var(--muted);font-size:.85rem}
+
+/* ===== Vorhersage ===== */
+/* kompakt: eine schmale Zeile pro Tag */
+.fc-wrap{overflow-x:auto}
+.fc{display:grid;grid-template-columns:repeat(7,minmax(6.2rem,1fr));gap:6px;min-width:44rem}
+.fc > div{display:grid;grid-template-columns:auto 1fr;grid-template-areas:"ic d" "ic t";column-gap:8px;align-items:center;background:var(--soft);border-radius:calc(var(--radius) * .5);padding:5px 8px;font-size:.88rem;line-height:1.2}
+.fc .d{grid-area:d;font-family:var(--f-data);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;font-weight:600;white-space:nowrap}
+.fc .d.we{color:var(--signal)}
+.fc svg{grid-area:ic;width:1.5rem;height:1.5rem;stroke:var(--ink);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.fc .t{grid-area:t;white-space:nowrap;font-variant-numeric:tabular-nums}
+.fc .mx{font-weight:700}
+.fc .mn{color:var(--muted)}
+.fc .pr{color:var(--muted);font-family:var(--f-data);font-size:.72rem;margin-left:4px}
+.fc .pr.hi{color:var(--signal);font-weight:600}
+.tile[data-tile="forecast"]{padding-block:10px 12px}
+.tile[data-tile="forecast"] .th{padding-bottom:4px;margin-bottom:8px}
+.tile[data-tile="forecast"] .th h2{font-size:1.15rem}
+
+/* ===== Fußzeile, Erinnerung, Dialog ===== */
+.foot{display:flex;justify-content:space-between;gap:6px 20px;flex-wrap:wrap;margin-top:12px;font-size:.85rem;color:var(--muted)}
+.foot .hint{color:var(--warn)}
+#remind{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:1000;background:var(--ink);color:var(--sheet);padding:14px 20px;max-width:min(620px,calc(100% - 32px));display:flex;gap:14px;align-items:center;box-shadow:0 6px 0 var(--signal);border-radius:var(--radius);font-size:1.1rem}
+#remind button{background:var(--sheet);color:var(--ink);border:0;padding:4px 14px;border-radius:6px}
+dialog{border:var(--bw) solid var(--rule);border-radius:var(--radius);background:var(--sheet);color:var(--ink);padding:0;max-width:min(760px,calc(100% - 24px));width:100%;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+dialog::backdrop{background:rgba(10,12,15,.5)}
+.dlg{padding:18px 22px;max-height:88vh;overflow:auto}
+.dlg h2{font-family:var(--f-title);font-style:var(--title-style);font-weight:var(--title-weight);font-size:1.9rem;margin:0 0 4px}
+.dlg fieldset{border:0;padding:0;margin:16px 0 0}
+.dlg legend{font-weight:700;padding:0;margin-bottom:6px}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(112px,1fr));gap:8px}
+.opts label{display:grid;gap:6px;border:1.5px solid var(--rule);border-radius:10px;padding:8px;cursor:pointer;font-size:.9rem;position:relative}
+.opts input{position:absolute;opacity:0;pointer-events:none}
+.opts label:has(input:checked){border-color:var(--signal);box-shadow:0 0 0 2px var(--signal)}
+.opts label:has(input:focus-visible){outline:2px solid var(--signal);outline-offset:2px}
+.sw{height:42px;border-radius:5px;display:grid;grid-template-columns:2fr 1fr;gap:3px;padding:5px}
+.sw span{border-radius:3px}
+.checks{display:flex;flex-wrap:wrap;gap:6px 18px}
+.checks label{display:flex;gap:6px;align-items:center;font-weight:400}
+.field{display:grid;gap:4px;margin-top:14px}
+.field label{font-weight:700}
+.field small{color:var(--muted);font-size:.84rem}
+.field input,.field textarea,.field select{background:var(--field);border:var(--bw) solid var(--rule);border-radius:8px;padding:7px 9px;width:100%}
+.dlg .row{display:flex;gap:10px;justify-content:flex-end;margin-top:18px;flex-wrap:wrap;position:sticky;bottom:-18px;background:var(--sheet);padding:10px 0}
+.btn{border:1.5px solid var(--ink);background:var(--sheet);border-radius:8px;padding:6px 16px}
+.btn.primary{background:var(--ink);color:var(--sheet)}
+
+.leaflet-container{font-family:var(--f-text)}
+.tiles-dark{filter:invert(1) hue-rotate(180deg) brightness(.85) contrast(.9)}
+.leaflet-bar a{background:var(--sheet);color:var(--ink);border-color:var(--rule)}
+
+@media (max-width:1250px){
+  .strip{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .strip .lbl{grid-column:1/-1}
+}
+@media (max-width:1100px){
+  .tile[data-span]{grid-column:span 6}
+  .tile[data-wide]{grid-column:span 12}
+}
+@media (max-width:700px){
+  .grid{grid-auto-rows:auto}.tile{overflow:visible}.tile-body{overflow:visible}.mapwrap{flex:none}#radar{height:17rem;flex:none}
+  .top{grid-template-columns:1fr}.tools{justify-content:flex-start}
+  .strip{grid-template-columns:1fr 1fr}
+  .grid{grid-template-columns:1fr}.tile[data-span]{grid-column:1/-1;grid-row:auto}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header>
+  <div class="top">
+    <div class="clock" id="clock">--:--</div>
+    <div class="date"><b id="dateLong">—</b><span id="kw">KW —</span></div>
+    <div class="tools">
+      <div class="upd" id="updBanner" hidden>
+        <span class="star"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8z"/></svg></span>
+        <button type="button" class="linkish" id="updOpen" style="background:none;border:0;padding:0;text-align:left;text-decoration:none"><b id="updTitle">Aktualisiert</b><small>Antippen: Was ist neu?</small></button>
+        <button type="button" class="close" id="updClose" aria-label="Hinweis schließen">×</button>
+      </div>
+      <span class="mode" id="modeLbl" title="Welcher Ort gerade gilt"><i></i>—</span>
+      <button type="button" class="ibtn" id="btnSmaller" title="Schrift kleiner" aria-label="Schrift kleiner">A−</button>
+      <button type="button" class="ibtn" id="btnBigger" title="Schrift größer" aria-label="Schrift größer">A+</button>
+      <button type="button" class="ibtn" id="btnNotify" title="Erinnerungen" aria-label="Erinnerungen ein oder aus" aria-pressed="false"><svg class="i" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></button>
+      <button type="button" class="ibtn" id="btnArrange" title="Kacheln anordnen" aria-label="Kacheln anordnen" aria-pressed="false"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></button>
+      <button type="button" class="ibtn" id="btnSettings" title="Einstellungen" aria-label="Einstellungen"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></svg></button>
+      <button type="button" class="ibtn" id="btnFull" title="Vollbild" aria-label="Vollbild"><svg class="i" viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+    </div>
+  </div>
+  <div class="setup-hint" id="setupHint" hidden>Willkommen! Bitte trag einmal in den <button type="button" class="linkish" onclick="openSettings()">Einstellungen</button> deinen Wohnort, Arbeitsplatz und deine Wege ein. Alles bleibt nur auf diesem Gerät gespeichert.</div>
+  <div class="strip" id="strip">
+    <div class="lbl"><b>Heute wichtig</b><span id="remindLbl">Erinnerung 10 min vorher</span></div>
+  </div>
+</header>
+
+<div id="arrangeBar" role="region" aria-label="Kacheln anordnen">
+  <span><b>Anordnen:</b> Kachel festhalten und an eine neue Stelle ziehen. Am roten Griff unten rechts ziehst du sie breiter, schmaler, höher oder niedriger.</span>
+  <span id="hiddenTiles"></span>
+  <button type="button" id="btnLayoutReset">Ursprüngliche Anordnung</button>
+  <button type="button" class="primary" id="btnArrangeDone">Fertig</button>
+</div>
+
+<main class="grid" id="grid">
+  <section class="tile" data-tile="transit" aria-labelledby="h-transit">
+    <div class="tile-bar"></div>
+    <div class="tile-body" id="transitBody">
+      <div class="th"><h2 id="h-transit">Meine Wege <span class="chip" id="depStop">ab Zuhause</span></h2><label class="switch" title="Losgeh-Ampel ein- oder ausblenden"><input type="checkbox" id="ampelToggle"><span class="sl" aria-hidden="true"></span>Ampel</label></div>
+      <form class="inline-form" id="tripForm">
+        <label for="tripTime">Los um</label>
+        <input type="time" id="tripTime" step="300">
+        <button type="submit" class="primary">Zeigen</button>
+        <button type="button" id="tripNow">Ab jetzt</button>
+        <span class="muted" id="tripWhen">ab jetzt</span>
+      </form>
+      <div id="routes"><p class="note">Verbindungen werden geladen …</p></div>
+      <div id="disrupt"></div>
+      <div class="src-line">Fahrplandaten: Transitous (DELFI, GVH) · Echtzeit wo vorhanden</div>
+    </div>
+  </section>
+
+  <section class="tile" data-tile="news" aria-labelledby="h-news">
+    <div class="tile-bar"></div>
+    <div class="tile-body">
+      <div class="th"><h2 id="h-news">Nachrichten</h2><button type="button" class="sbtn" id="btnFeeds">Auswahl</button></div>
+      <div class="newsbox" id="newsBox"><p class="note">Schlagzeilen werden geladen …</p></div>
+      <div class="dots" id="newsDots"></div>
+    </div>
+  </section>
+
+  <section class="tile" data-tile="weather" aria-labelledby="h-wx">
+    <div class="tile-bar"></div>
+    <div class="tile-body">
+      <div class="th"><h2 id="h-wx">Wetter <span id="wxPlace">Zuhause</span></h2><div class="now"><small id="wxSmall"></small><span class="tt" id="wxTemp">–°</span></div></div>
+      <div class="mapwrap">
+        <div id="radar"></div>
+        <button type="button" class="play" id="radarPlay">▶ Abspielen</button>
+        <div class="timeline"><span id="radarTime">--:--</span><input type="range" id="radarSlider" min="0" max="11" value="11" aria-label="Zeitpunkt des Radarbilds"></div>
+      </div>
+      <div class="src-line" style="margin-top:4px;padding-top:0">Radar: Deutscher Wetterdienst · <a href="https://www.wetter.com/" target="_blank" rel="noopener" style="color:inherit">wetter.com öffnen ↗</a></div>
+      <div class="headline" id="wxHead"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 15h10a4 4 0 0 0 .6-7.95A6 6 0 0 0 6.3 7.1 4 4 0 0 0 7 15z"/><path d="M8 18l-1 3M12 18l-1 3M16 18l-1 3"/></svg><span id="wxHeadTxt">Vorhersage wird geladen …</span></div>
+      <div class="chips" id="wxChips"></div>
+      <form class="inline-form" id="wxAdd" hidden style="margin-top:8px">
+        <input type="time" id="wxAddTime" required aria-label="Uhrzeit">
+        <input type="text" id="wxAddLabel" placeholder="z. B. Losgehen" aria-label="Bezeichnung" style="flex:1 1 7rem">
+        <select id="wxAddLoc" aria-label="Ort"><option value="home">Zuhause</option><option value="work">Büro</option></select>
+        <button type="submit" class="primary">Hinzufügen</button>
+      </form>
+      <div class="hours" id="wxHours" aria-label="Regenwahrscheinlichkeit der nächsten 12 Stunden"></div>
+      <div class="hx" id="wxHx"></div>
+      <div class="facts" id="wxFacts"></div>
+      <div id="wxAlerts"></div>
+    </div>
+  </section>
+
+  <section class="tile" data-tile="month" aria-labelledby="h-month">
+    <div class="tile-bar"></div>
+    <div class="tile-body">
+      <div class="th"><h2 id="h-month"><span id="monthName">Monat</span></h2>
+        <div class="navbtns"><button type="button" class="sbtn" id="mPrev" aria-label="Vorheriger Monat">‹</button><button type="button" class="sbtn" id="mNext" aria-label="Nächster Monat">›</button><span class="chip" id="mKw">KW</span></div></div>
+      <table class="month" id="month"></table>
+      <div class="mlegend" id="mLegend"></div>
+      <div class="hlist" id="mHol"></div>
+    </div>
+  </section>
+
+  <section class="tile" data-tile="forecast" aria-labelledby="h-fc">
+    <div class="tile-bar"></div>
+    <div class="tile-body">
+      <div class="th"><h2 id="h-fc">Die nächsten 7 Tage</h2><span class="right" id="fcPlace"></span></div>
+      <div class="fc-wrap"><div class="fc" id="fc"><p class="note">Vorhersage wird geladen …</p></div></div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <span><span id="stand">Stand —</span> · <span class="hint" id="soundHint">Einmal auf das Board klicken, um den Ton zu aktivieren</span></span>
+  <span>Wallboard · Wetter: DWD, Open-Meteo · Nachrichten per RSS · Karte © BKG · <button type="button" class="linkish" id="verLink">Version</button></span>
+</footer>
+
+<dialog id="dlgNews">
+  <div class="dlg cl">
+    <h2>Was ist neu?</h2>
+    <div id="clList"></div>
+    <div class="row"><button type="button" class="btn primary" id="clClose">Schließen</button></div>
+  </div>
+</dialog>
+</div>
+
+<div id="remind" hidden role="alert"><span id="remindText"></span><button type="button" id="remindOk">OK</button></div>
+
+<dialog id="dlg">
+<form class="dlg" id="settingsForm" method="dialog">
+  <h2>Einstellungen</h2>
+  <p class="note">Alles wird nur in diesem Browser gespeichert. Design und Schrift wechseln sofort zur Vorschau.</p>
+
+  <fieldset>
+    <legend>Design</legend>
+    <div class="opts" id="designPicker">
+      <label><input type="radio" name="design" value="buero"><span class="sw" style="background:#e3e6eb"><span style="background:#f8f9fb;border:1px solid #c6ccd5"></span><span style="background:#2449a8"></span></span>Büro</label>
+      <label><input type="radio" name="design" value="zeitung"><span class="sw" style="background:#ebeae5"><span style="background:#f6f6f2;border:1px solid #2a2b2e"></span><span style="background:#a8231c"></span></span>Zeitung</label>
+      <label><input type="radio" name="design" value="eink"><span class="sw" style="background:#fff;border:2px solid #000"><span style="background:#fff;border:2px solid #000"></span><span style="background:#000"></span></span>E-Ink</label>
+      <label><input type="radio" name="design" value="nacht"><span class="sw" style="background:#111316"><span style="background:#1a1d21;border:1px solid #3a3e44"></span><span style="background:#ff7d6b"></span></span>Nachtausgabe</label>
+      <label><input type="radio" name="design" value="bahnhof"><span class="sw" style="background:#08223d"><span style="background:#0d2e52;border:1px solid #3d6390"></span><span style="background:#ffd23f"></span></span>Bahnsteig</label>
+      <label><input type="radio" name="design" value="klar"><span class="sw" style="background:#e9eef2"><span style="background:#fff;border-radius:8px"></span><span style="background:#d4442a;border-radius:8px"></span></span>Klar</label>
+      <label><input type="radio" name="design" value="applelight"><span class="sw" style="background:#f2f2f7"><span style="background:#fff;border-radius:9px;box-shadow:0 2px 6px rgba(0,0,0,.12)"></span><span style="background:#007aff;border-radius:9px"></span></span>Apple Hell</label>
+      <label><input type="radio" name="design" value="appledark"><span class="sw" style="background:#000"><span style="background:#1c1c1e;border-radius:9px"></span><span style="background:#0a84ff;border-radius:9px"></span></span>Apple Dunkel</label>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Schriftart</legend>
+    <div class="opts" id="fontPicker">
+      <label><input type="radio" name="font" value="auto"><span style="font-size:1.3rem">Aa</span>Passend zum Design</label>
+      <label><input type="radio" name="font" value="arial"><span style="font-family:Arial,Helvetica,sans-serif;font-size:1.3rem">Aa</span>Arial</label>
+      <label><input type="radio" name="font" value="apple"><span style="font-family:-apple-system,BlinkMacSystemFont,'Inter','Helvetica Neue',Arial,sans-serif;font-size:1.3rem">Aa</span>Apple-Systemschrift</label>
+      <label><input type="radio" name="font" value="verdana"><span style="font-family:Verdana,sans-serif;font-size:1.3rem">Aa</span>Verdana</label>
+      <label><input type="radio" name="font" value="lesbar"><span style="font-family:'Atkinson Hyperlegible',Verdana,sans-serif;font-size:1.3rem">Aa</span>Besonders lesbar</label>
+      <label><input type="radio" name="font" value="roboto"><span style="font-family:Roboto,Arial,sans-serif;font-size:1.3rem">Aa</span>Roboto</label>
+      <label><input type="radio" name="font" value="georgia"><span style="font-family:Georgia,serif;font-size:1.3rem;font-style:italic">Aa</span>Georgia</label>
+      <label><input type="radio" name="font" value="zeitung"><span style="font-family:Newsreader,Georgia,serif;font-size:1.3rem;font-style:italic">Aa</span>Zeitungsschrift</label>
+      <label><input type="radio" name="font" value="schreibmaschine"><span style="font-family:'IBM Plex Mono',monospace;font-size:1.3rem">Aa</span>Schreibmaschine</label>
+    </div>
+    <small class="muted" style="display:block;margin-top:6px">Die Apple-Systemschrift gibt es nur auf Mac und iPhone. Unter Windows nimmt das Board eine sehr ähnliche Schrift.</small>
+  </fieldset>
+
+  <fieldset>
+    <legend>Schriftgröße</legend>
+    <div class="opts" id="scalePicker">
+      <label><input type="radio" name="scale" value="0.85"><span style="font-size:.85rem;font-weight:700">Aa</span>Klein</label>
+      <label><input type="radio" name="scale" value="1"><span style="font-size:1rem;font-weight:700">Aa</span>Normal</label>
+      <label><input type="radio" name="scale" value="1.15"><span style="font-size:1.2rem;font-weight:700">Aa</span>Groß</label>
+      <label><input type="radio" name="scale" value="1.3"><span style="font-size:1.4rem;font-weight:700">Aa</span>Sehr groß</label>
+      <label><input type="radio" name="scale" value="1.5"><span style="font-size:1.6rem;font-weight:700">Aa</span>Riesig</label>
+    </div>
+    <small class="muted" style="display:block;margin-top:6px">Auch oben mit A− und A+ einstellbar.</small>
+  </fieldset>
+
+  <fieldset>
+    <legend>Wo steht das Board?</legend>
+    <div class="opts" id="modePicker">
+      <label><input type="radio" name="mode" value="auto"><b>Automatisch</b><small class="muted">bis 12 Uhr Zuhause, danach Büro</small></label>
+      <label><input type="radio" name="mode" value="home"><b>Zuhause</b><small class="muted">Wetter für Zuhause</small></label>
+      <label><input type="radio" name="mode" value="work"><b>Büro</b><small class="muted">Abfahrten am Büro, Weg nach Hause</small></label>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Automatisch umschalten</legend>
+    <div class="checks" style="flex-direction:column;gap:10px">
+      <label><input type="checkbox" id="ampelSet"> <span><b>Losgeh-Ampel</b> bei „Meine Wege“ anzeigen.</span></label>
+      <label><input type="checkbox" id="weekendMode"> <span><b>Wochenend-Modus:</b> An Wochenenden, Feiertagen und Urlaubstagen den Fahrplan ausblenden.</span></label>
+    </div>
+    <div class="field" style="margin-top:12px"><label for="nightMode">Nachtmodus (dunkles Design)</label>
+      <select id="nightMode">
+        <option value="off">Aus</option>
+        <option value="sun">Von Sonnenuntergang bis Sonnenaufgang</option>
+        <option value="fixed">Zu festen Uhrzeiten</option>
+      </select></div>
+    <div class="inline-form" id="nightTimes" style="margin-top:8px">
+      <label for="nightFrom">von</label><input type="time" id="nightFrom">
+      <label for="nightTo">bis</label><input type="time" id="nightTo">
+    </div>
+    <div class="field"><label for="nightDesign">Design in der Nacht</label>
+      <select id="nightDesign">
+        <option value="appledark">Apple Dunkel</option>
+        <option value="nacht">Nachtausgabe</option>
+        <option value="bahnhof">Bahnsteig</option>
+      </select></div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Müllabfuhr (aha)</legend>
+    <small class="muted" style="display:block">So geht’s: Auf <b>aha-region.de</b> unter „Abholtermine“ deine Gemeinde, deine Straße und Hausnummer eingeben, dann auf den Knopf „iCal“ (Apple) klicken und die Datei speichern. Danach hier die Datei auswählen. Einmal im Jahr wiederholen.</small>
+    <div class="inline-form" style="margin-top:8px">
+      <input type="file" id="wasteFile" accept=".ics,text/calendar" aria-label="aha-Kalenderdatei auswählen">
+      <button type="button" id="wasteClear">Termine löschen</button>
+    </div>
+    <small id="wasteState" class="muted" style="display:block;margin-top:4px"></small>
+  </fieldset>
+
+  <fieldset id="feedSet">
+    <legend>Nachrichten-Quellen</legend>
+    <div class="checks" id="feedChecks"></div>
+  </fieldset>
+
+  <div class="field"><label for="icsCal">iCloud-Kalender: Abo-Link</label>
+    <input id="icsCal" type="url" placeholder="webcal://p…-caldav.icloud.com/published/2/…">
+    <small>Am iPhone: Kalender-App → Kalender → (i) neben dem Kalender → „Öffentlicher Kalender“ an → „Link teilen“. Mehrere Links mit Komma trennen.</small></div>
+
+  <div class="field"><label for="vacation">Urlaub</label>
+    <textarea id="vacation" rows="3" placeholder="19.11.2026-09.12.2026 Herbsturlaub&#10;21.12.2026-28.12.2026 Weihnachten"></textarea>
+    <small>Pro Zeile ein Zeitraum oder ein Tag, dahinter optional ein Name.</small></div>
+
+  <div class="field"><label for="remindMin">Erinnerung vor einem Termin (Minuten)</label>
+    <input id="remindMin" type="number" min="1" max="120"></div>
+
+  <div class="field"><label for="homeAddr">Wohnort</label><input id="homeAddr" type="text"></div>
+  <div class="field"><label for="workAddr">Arbeitsplatz</label><input id="workAddr" type="text">
+    <small>Für Wetter und Radar im Büro.</small></div>
+
+  <div class="field"><label for="dests">Meine Wege: Ziele ab Zuhause</label>
+    <textarea id="dests" rows="3" placeholder="Arbeit | Musterstraße 1, 30159 Hannover"></textarea>
+    <small>Pro Zeile ein Ziel: Name | Adresse. Bis zu 4 Ziele, jedes bekommt eine eigene Ampel.</small></div>
+
+  <div class="field"><label for="radarSrc">Regenradar</label>
+    <select id="radarSrc"><option value="dwd">Eingebaute Karte (Deutscher Wetterdienst)</option><option value="url">Eigene Webseite, z. B. wetter.com</option></select>
+    <input id="radarUrl" type="url" placeholder="https://www.wetter.com/…" style="margin-top:6px">
+    <small>Für wetter.com: Dort das Regenradar öffnen, die Adresse oben im Browser kopieren und hier einfügen. Bleibt die Kachel danach leer oder grau, erlaubt die Seite keine Einbindung. Dann zurück auf „Eingebaute Karte“ stellen.</small></div>
+
+  <div class="field"><label for="proxy">Durchreiche-Dienst für den Kalender</label>
+    <select id="proxy">
+      <option value="">Noch keiner – Kalender aus</option>
+      <option value="custom">Eigenes Google-Skript …</option>
+    </select>
+    <input id="proxyCustom" type="url" placeholder="https://script.google.com/macros/s/…/exec?url=" hidden>
+    <small>Browser dürfen deinen iCloud-Kalender nicht direkt laden. Ein kleines Google-Skript in deinem eigenen Google-Konto reicht ihn durch. Die Anleitung hast du von Claude im Chat bekommen.</small></div>
+
+  <div class="row"><button type="button" class="btn" id="btnCancel">Abbrechen</button><button type="submit" class="btn primary">Speichern</button></div>
+</form>
+</dialog>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/ical.js@1.5.0/build/ical.min.js"></script>
+<script>
+"use strict";
+/* ================= Version und automatische Updates ================= */
+const VERSION = "1.9.0";
+const CHANGELOG = [
+  {v:"1.9.0", d:"02.11.2026", items:["7-Tage-Vorhersage repariert: Bei zu niedriger Kachel wurde sie abgeschnitten. Jede Kachel hat jetzt eine Mindesthöhe, damit nichts verschwindet.","Losgeh-Ampel deutlich kleiner: nur noch eine Zeile mit farbigem Punkt.","Schalter „Ampel“ oben in „Meine Wege“ zum Ein- und Ausblenden (auch in den Einstellungen)."]},
+  {v:"1.8.1", d:"02.11.2026", items:["Deine Uhrzeiten beim Wetter als gut lesbare Liste: Regenwahrscheinlichkeit groß, dazu Temperatur und Wetter.","Ort je Uhrzeit (Zuhause/Büro) per Klick umschaltbar."]},
+  {v:"1.8.0", d:"02.11.2026", items:["„Meine Wege“: Verbindungen ab Zuhause zu deinen Zielen, jede mit eigener Ampel. Ziele in den Einstellungen änderbar.","Kacheln lassen sich jetzt auch kleiner ziehen; zu viel Inhalt wird in der Kachel gescrollt.","Radar-Hintergrundkarte vom Bundesamt für Kartographie, funktioniert ohne Zugangsschlüssel.","Regenradar wahlweise als eigene Webseite, z. B. wetter.com (Einstellungen → Regenradar)."]},
+  {v:"1.7.0", d:"02.11.2026", items:["Fahrplan läuft jetzt über Transitous (Daten von GVH/üstra), mit Echtzeit wo vorhanden.","Haltestelle und Richtung(en) frei wählbar: in der Fahrplan-Kachel auf „ändern“ klicken.","Regenradar repariert (neues Kartenformat des DWD), dazu ein Link zu wetter.com.","Nachrichten kommen direkt von der Tagesschau: Top, Niedersachsen, Inland, Ausland, Wirtschaft, Sport, Wissen.","Abgeschaltete Durchreiche-Dienste entfernt; der Kalender braucht jetzt ein eigenes Google-Skript."]},
+  {v:"1.6.0", d:"02.11.2026", items:["Losgeh-Ampel: Grün, Gelb, Rot zeigt, wann du losmusst, mit Schirm-Hinweis.","Störungshinweise zu deinen Linien direkt unter den Abfahrten.","Wochenend-Modus: An freien Tagen verschwindet der Fahrplan.","Müllabfuhr: aha-Kalenderdatei einlesen, Hinweis „Morgen: Gelber Sack“.","Schulferien Niedersachsen im Monatskalender.","Automatischer Nachtmodus mit dunklem Design."]},
+  {v:"1.5.0", d:"02.11.2026", items:["Kachelgröße frei einstellbar: Im Anordnen-Modus am roten Griff unten rechts ziehen.","Breite in 12 Stufen, Höhe in 12 Stufen; zusätzlich Knöpfe für schmaler, breiter, niedriger und höher.","Die Anordnung wurde einmal auf den Standard zurückgesetzt."]},
+  {v:"1.4.0", d:"02.11.2026", items:["Automatische Updates: Neue Versionen landen direkt in deinem Wallboard-Ordner, das Board lädt sie selbst.","Versionsanzeige mit „Was ist neu?“."]},
+  {v:"1.3.0", d:"02.11.2026", items:["Schriftarten zur Auswahl, z. B. Arial, Verdana, Apple-Systemschrift.","Neue Designs „Apple Hell“ und „Apple Dunkel“.","7-Tage-Vorhersage deutlich kompakter."]},
+  {v:"1.2.0", d:"02.11.2026", items:["Neues Layout: „Heute wichtig“, Nachrichten zum Blättern, Monat mit Urlaub und Arbeitstagen.","Regenradar zum Abspielen, Schriftgröße A−/A+, Kacheln höher/niedriger.","Ort Zuhause/Büro, automatisch nach Uhrzeit. Aufgabenliste entfernt."]},
+  {v:"1.1.0", d:"02.11.2026", items:["Fünf Designs, verschiebbare Kacheln.","Eigene Uhrzeiten für die Regen-Prüfung, feste Abfahrtszeit."]},
+  {v:"1.0.0", d:"02.11.2026", items:["Erste Version: Kalender, Fahrplan, Wetter, Radar, Monat, Nachrichten."]}
+];
+/* Das Board liest alle 60 Sekunden die kleine Datei version.js im selben Ordner.
+   Steht dort eine neuere Nummer, lädt es sich neu – außer du bist gerade in den Einstellungen oder beim Anordnen. */
+function checkForUpdate(){
+  const s = document.createElement("script");
+  s.src = "version.js?t=" + Date.now();
+  s.onload = () => {
+    s.remove();
+    const latest = window.BOARD_LATEST;
+    if(!latest || latest === VERSION) return;
+    if(document.querySelector("dialog[open]") || document.body.classList.contains("arranging")) return;
+    let tries = 0; try{ tries = +sessionStorage.getItem("bb_try_" + latest) || 0; sessionStorage.setItem("bb_try_" + latest, tries + 1); }catch(e){}
+    if(tries < 3) location.reload();
+  };
+  s.onerror = () => s.remove();
+  document.head.appendChild(s);
+}
+function showChangelog(){
+  document.getElementById("clList").innerHTML = CHANGELOG.map(c => "<h3>Version " + c.v + "<small>" + c.d + "</small></h3><ul>" + c.items.map(i => "<li>" + i.replace(/[<>&]/g, "") + "</li>").join("") + "</ul>").join("");
+  document.getElementById("dlgNews").showModal();
+}
+
+/* ================= Einstellungen ================= */
+const TS = "https://www.tagesschau.de/api2u/";
+const FEEDS = {
+  tagesschau:{name:"Tagesschau", url:TS + "homepage/"},
+  niedersachsen:{name:"Niedersachsen", url:TS + "news/?regions=9"},
+  inland:{name:"Inland", url:TS + "news/?ressort=inland"},
+  ausland:{name:"Ausland", url:TS + "news/?ressort=ausland"},
+  wirtschaft:{name:"Wirtschaft", url:TS + "news/?ressort=wirtschaft"},
+  sport:{name:"Sport", url:TS + "news/?ressort=sport"},
+  wissen:{name:"Wissen & Technik", url:TS + "news/?ressort=wissen"}
+};
+const DEFAULTS = {
+  v:3, icsCal:"", vacation:"", remindMin:10, design:"buero", font:"auto", scale:1, mode:"auto", feeds:["tagesschau","niedersachsen"],
+  weekendMode:true, nightMode:"off", nightFrom:"20:00", nightTo:"06:30", nightDesign:"appledark",
+  homeAddr:"", workAddr:"",
+  proxy:"",
+  home:{lat:52.3745, lon:9.7386}, work:{lat:52.3745, lon:9.7386}, geoFor:""
+};
+const store = {
+  get(k, d){ try{ const v = localStorage.getItem("bb_"+k); return v==null ? d : JSON.parse(v); }catch(e){ return d; } },
+  set(k, v){ try{ localStorage.setItem("bb_"+k, JSON.stringify(v)); }catch(e){} }
+};
+let CFG = Object.assign({}, DEFAULTS, store.get("cfg", {}));
+if(CFG.v !== 3){ CFG.v = 3; CFG.design = "buero"; CFG.scale = 1; CFG.mode = CFG.mode || "auto"; CFG.feeds = DEFAULTS.feeds; store.set("cfg", CFG); }
+const SCALES = [0.85, 1, 1.15, 1.3, 1.5];
+/* Umstellung 1.7.0: alte, abgeschaltete Durchreiche-Dienste und alte Nachrichtenquellen entfernen */
+if(/allorigins|corsproxy\.io/.test(CFG.proxy || "")) CFG.proxy = "";
+CFG.feeds = (CFG.feeds || []).map(k => k === "ndr" ? "niedersachsen" : k).filter(k => FEEDS[k]);
+if(!CFG.feeds.length) CFG.feeds = DEFAULTS.feeds.slice();
+store.set("cfg", CFG);
+
+/* ================= Hilfsfunktionen ================= */
+const $ = id => document.getElementById(id);
+const fmtTime = d => d.toLocaleTimeString("de-DE", {hour:"2-digit", minute:"2-digit"});
+const pad = n => String(n).padStart(2, "0");
+const dayKey = d => d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate());
+const hourKey = d => dayKey(d) + "T" + pad(d.getHours()) + ":00";
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const proxied = url => (CFG.proxy || DEFAULTS.proxy) + encodeURIComponent(url);
+async function getJSON(url, ms=15000){
+  const ctl = new AbortController(); const t = setTimeout(()=>ctl.abort(), ms);
+  try{ const r = await fetch(url, {signal:ctl.signal}); if(!r.ok) throw new Error("HTTP "+r.status); return await r.json(); }
+  finally{ clearTimeout(t); }
+}
+async function getText(url, ms=20000){
+  const ctl = new AbortController(); const t = setTimeout(()=>ctl.abort(), ms);
+  try{ const r = await fetch(url, {signal:ctl.signal}); if(!r.ok) throw new Error("HTTP "+r.status); return await r.text(); }
+  finally{ clearTimeout(t); }
+}
+function isoWeek(d){
+  const t = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+  const day = t.getUTCDay() || 7; t.setUTCDate(t.getUTCDate() + 4 - day);
+  const y0 = new Date(Date.UTC(t.getUTCFullYear(), 0, 1));
+  return Math.ceil(((t - y0) / 86400000 + 1) / 7);
+}
+function easter(y){
+  const a=y%19,b=Math.floor(y/100),c=y%100,d=Math.floor(b/4),e=b%4,f=Math.floor((b+8)/25),g=Math.floor((b-f+1)/3),
+  h=(19*a+b-d-g+15)%30,i=Math.floor(c/4),k=c%4,l=(32+2*e+2*i-h-k)%7,m=Math.floor((a+11*h+22*l)/451),
+  mo=Math.floor((h+l-7*m+114)/31),da=((h+l-7*m+114)%31)+1; return new Date(y,mo-1,da);
+}
+const _holCache = {};
+function holidaysNI(y){
+  if(_holCache[y]) return _holCache[y];
+  const e = easter(y), plus = n => { const d=new Date(e); d.setDate(d.getDate()+n); return d; };
+  const list = [[new Date(y,0,1),"Neujahr"],[plus(-2),"Karfreitag"],[plus(1),"Ostermontag"],[new Date(y,4,1),"Tag der Arbeit"],
+    [plus(39),"Christi Himmelfahrt"],[plus(50),"Pfingstmontag"],[new Date(y,9,3),"Tag der Deutschen Einheit"],
+    [new Date(y,9,31),"Reformationstag"],[new Date(y,11,25),"1. Weihnachtstag"],[new Date(y,11,26),"2. Weihnachtstag"]];
+  const map = {}; list.forEach(([d,n]) => map[dayKey(d)] = n); return (_holCache[y] = map);
+}
+const holidayName = d => holidaysNI(d.getFullYear())[dayKey(d)];
+function parseDE(s){ const m = (s||"").trim().match(/^(\d{1,2})\.(\d{1,2})\.(\d{4})$/); return m ? new Date(+m[3], +m[2]-1, +m[1]) : null; }
+/* Urlaub: "19.11.2026-09.12.2026 Name" oder "15.05.2027" */
+function vacations(){
+  return (CFG.vacation||"").split(/\n+/).map(line => {
+    const m = line.trim().match(/^(\d{1,2}\.\d{1,2}\.\d{4})(?:\s*[-–]\s*(\d{1,2}\.\d{1,2}\.\d{4}))?\s*(.*)$/);
+    if(!m) return null; const a = parseDE(m[1]), b = m[2] ? parseDE(m[2]) : a;
+    if(!a || !b || b < a) return null; return {from:a, to:b, name:m[3].trim() || "Urlaub"};
+  }).filter(Boolean).map((v, i) => ({...v, color:"var(--v" + (i % 3 + 1) + ")"}));
+}
+function workdays(a, b){
+  let n = 0; for(let d = new Date(a); d <= b; d.setDate(d.getDate()+1)){ const w = d.getDay(); if(w !== 0 && w !== 6 && !holidayName(d)) n++; } return n;
+}
+const daysBetween = (a, b) => Math.round((new Date(b.getFullYear(),b.getMonth(),b.getDate()) - new Date(a.getFullYear(),a.getMonth(),a.getDate())) / 86400000);
+function nextOccurrence(hhmm, now = new Date()){
+  const [h, m] = hhmm.split(":").map(Number);
+  const d = new Date(now); d.setHours(h, m, 0, 0);
+  if(d < new Date(now.getTime() - 5*60000)) d.setDate(d.getDate() + 1);
+  return d;
+}
+const relDay = d => { const t = new Date(), x = new Date(); x.setDate(x.getDate()+1);
+  return dayKey(d) === dayKey(t) ? "heute" : dayKey(d) === dayKey(x) ? "morgen" : d.toLocaleDateString("de-DE",{weekday:"short"}); };
+/* Freier Tag: Wochenende, Feiertag oder Urlaub */
+function freeDayReason(d = new Date()){
+  const w = d.getDay(); if(w === 0 || w === 6) return "Wochenende";
+  const h = holidayName(d); if(h) return h;
+  const d0 = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+  const v = vacations().find(v => d0 >= v.from && d0 <= v.to); if(v) return v.name;
+  return "";
+}
+const freeMode = () => CFG.weekendMode !== false && !!freeDayReason();
+/* Welcher Ort gilt gerade? An freien Tagen im Automatik-Modus: Zuhause */
+const here = () => CFG.mode === "home" ? "home" : CFG.mode === "work" ? "work" : (freeMode() || new Date().getHours() < 12 ? "home" : "work");
+/* Nachtmodus: abends automatisch ein dunkles Design */
+function isNight(now = new Date()){
+  const m = CFG.nightMode || "off"; if(m === "off") return false;
+  const hm = now.getHours() * 60 + now.getMinutes(), toMin = s => { const [h, mi] = String(s || "0:0").split(":").map(Number); return h * 60 + (mi || 0); };
+  let from, to;
+  if(m === "sun" && WX.home){ from = toMin(WX.home.daily.sunset[0].slice(11)); to = toMin(WX.home.daily.sunrise[0].slice(11)); }
+  else { from = toMin(CFG.nightFrom || "20:00"); to = toMin(CFG.nightTo || "06:30"); }
+  return from > to ? (hm >= from || hm < to) : (hm >= from && hm < to);
+}
+const effDesign = () => isNight() ? (CFG.nightDesign || "appledark") : CFG.design;
+const PLACE = {home:"Zuhause", work:"Büro"};
+const levelClass = p => p >= 60 ? "hi" : p >= 30 ? "mid" : "";
+
+/* ================= Design und Schrift ================= */
+function applyLook(design, scale, font){
+  document.documentElement.dataset.design = design || "buero";
+  if(font === undefined) font = CFG.font;
+  if(font && font !== "auto") document.documentElement.dataset.font = font; else delete document.documentElement.dataset.font;
+  document.documentElement.style.setProperty("--scale", scale || 1);
+  if(window.map){ setBaseLayer(); setTimeout(() => map.invalidateSize(), 60); }
+}
+function stepScale(dir){
+  let i = SCALES.indexOf(+CFG.scale); if(i < 0) i = 1;
+  i = Math.min(SCALES.length-1, Math.max(0, i + dir)); CFG.scale = SCALES[i]; store.set("cfg", CFG); applyLook(effDesign(), CFG.scale);
+}
+$("btnSmaller").addEventListener("click", () => stepScale(-1));
+$("btnBigger").addEventListener("click", () => stepScale(1));
+$("btnFull").addEventListener("click", () => {
+  try{ if(document.fullscreenElement) document.exitFullscreen(); else document.documentElement.requestFullscreen(); }catch(e){}
+});
+
+/* ================= Kopfzeile ================= */
+function tickClock(){
+  const now = new Date();
+  $("clock").textContent = fmtTime(now);
+  $("dateLong").textContent = now.toLocaleDateString("de-DE", {weekday:"long", day:"numeric", month:"long"});
+  $("kw").textContent = "KW " + isoWeek(now) + " · " + now.getFullYear();
+  $("stand").textContent = "Stand " + now.toLocaleTimeString("de-DE");
+}
+function updateModeLabel(){
+  const w = here();
+  const free = freeMode() ? freeDayReason() : "";
+  $("modeLbl").innerHTML = "<i></i>" + (free ? "Frei: " + esc(free) : (w === "home" ? "Zuhause" : "Im Büro") + (CFG.mode === "auto" ? " · auto" : "")) + (isNight() ? " · Nacht" : "");
+}
+
+/* ================= Kacheln anordnen ================= */
+const TILE_NAMES = {transit:"Abfahrten", news:"Nachrichten", weather:"Wetter & Radar", month:"Monat", forecast:"7-Tage-Vorhersage"};
+const DEFAULT_LAYOUT = [
+  {id:"transit", span:3, rows:15}, {id:"news", span:5, rows:6}, {id:"weather", span:4, rows:15},
+  {id:"month", span:5, rows:9}, {id:"forecast", span:12, rows:3}
+];
+const MIN_SPAN = 2, MAX_SPAN = 12, MAX_ROWS = 30;
+const sizeText = t => "Breite " + t.span + "/12 · Höhe " + t.rows;
+let LAYOUT = (() => {
+  const saved = store.get("layout5", null);
+  if(!Array.isArray(saved)) return DEFAULT_LAYOUT.map(x => ({...x}));
+  const ids = new Set(saved.map(x => x.id));
+  return saved.filter(x => TILE_NAMES[x.id]).concat(DEFAULT_LAYOUT.filter(x => !ids.has(x.id)).map(x => ({...x})));
+})();
+const tileEl = id => document.querySelector('.tile[data-tile="' + id + '"]');
+function applyLayout(){
+  const grid = $("grid");
+  LAYOUT.forEach((t, i) => {
+    const el = tileEl(t.id); if(!el) return;
+    grid.appendChild(el); setTileSize(el, t); el.hidden = !!t.hidden;
+    if(!el.querySelector(".rz")) el.insertAdjacentHTML("beforeend", '<span class="rz" title="Ziehen, um die Größe zu ändern" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 10 10 20M20 16l-4 4"/></svg></span>');
+    el.querySelector(".tile-bar").innerHTML =
+      '<strong>' + TILE_NAMES[t.id] + '</strong>' +
+      '<button type="button" data-act="left"' + (i === 0 ? " disabled" : "") + ' aria-label="Nach vorne">←</button>' +
+      '<button type="button" data-act="right"' + (i === LAYOUT.length-1 ? " disabled" : "") + ' aria-label="Nach hinten">→</button>' +
+      '<button type="button" data-act="narrow" aria-label="schmaler">◂ schmaler</button><button type="button" data-act="wide" aria-label="breiter">breiter ▸</button>' +
+      '<button type="button" data-act="short" aria-label="niedriger">▴ niedriger</button><button type="button" data-act="tall" aria-label="höher">höher ▾</button>' +
+      '<span class="sz">' + sizeText(t) + '</span>' +
+      '<button type="button" data-act="hide">ausblenden</button>';
+  });
+  /* Wochenend-Modus: Fahrplan ausblenden, die Nachrichten bekommen den Platz (gilt nur für heute, wird nicht gespeichert) */
+  if(freeMode() && !document.body.classList.contains("arranging")){
+    const tr = LAYOUT.find(t => t.id === "transit"), nw = LAYOUT.find(t => t.id === "news");
+    if(tr && !tr.hidden){ tileEl("transit").hidden = true; if(nw) setTileSize(tileEl("news"), {span: nw.span + tr.span, rows: nw.rows}); }
+  }
+  const hidden = LAYOUT.filter(t => t.hidden);
+  $("hiddenTiles").innerHTML = hidden.length ? "Ausgeblendet: " + hidden.map(t => '<button type="button" data-show="' + t.id + '">' + TILE_NAMES[t.id] + ' einblenden</button>').join(" ") : "";
+  store.set("layout5", LAYOUT);
+  if(window.map) setTimeout(() => map.invalidateSize(), 60);
+}
+const MIN_ROWS = {forecast:3, transit:6, weather:8, news:4, month:7};
+function setTileSize(el, t){
+  t.span = Math.min(MAX_SPAN, Math.max(MIN_SPAN, +t.span || 4));
+  t.rows = Math.min(MAX_ROWS, Math.max(MIN_ROWS[t.id] || 1, +t.rows || 1));
+  el.dataset.span = t.span; el.style.setProperty("--span", t.span); el.style.setProperty("--rows", t.rows);
+  if(t.span >= 7) el.dataset.wide = "1"; else delete el.dataset.wide;
+}
+/* Größe mit dem Griff unten rechts ändern: rastet in Zwölftel-Spalten und 5rem-Stufen ein */
+let rz = null;
+$("grid").addEventListener("pointerdown", e => {
+  const h = e.target.closest(".rz"); if(!h || !document.body.classList.contains("arranging")) return;
+  e.preventDefault(); e.stopPropagation();
+  const el = h.closest(".tile"), t = LAYOUT.find(x => x.id === el.dataset.tile), r = el.getBoundingClientRect();
+  const gs = getComputedStyle($("grid")), gap = parseFloat(gs.columnGap) || 0;
+  const colW = ($("grid").clientWidth - gap * 11) / 12;
+  const rowU = parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.5, rgap = parseFloat(gs.rowGap) || 0;
+  el.draggable = false; el.classList.add("resizing");
+  el.insertAdjacentHTML("beforeend", '<span class="sizehint">' + sizeText(t) + "</span>");
+  rz = {el, t, x:e.clientX, y:e.clientY, w:r.width, h:r.height, colW, gap, rowU, rgap};
+  try{ h.setPointerCapture(e.pointerId); }catch(err){}
+});
+$("grid").addEventListener("pointermove", e => {
+  if(!rz) return;
+  const w = rz.w + (e.clientX - rz.x), hh = rz.h + (e.clientY - rz.y);
+  const span = Math.round((w + rz.gap) / (rz.colW + rz.gap)), rows = Math.round((hh + rz.rgap) / (rz.rowU + rz.rgap));
+  if(span !== rz.t.span || rows !== rz.t.rows){
+    rz.t.span = span; rz.t.rows = rows; setTileSize(rz.el, rz.t);
+    const hint = rz.el.querySelector(".sizehint"); if(hint) hint.textContent = sizeText(rz.t);
+    if(window.map) map.invalidateSize();
+  }
+});
+function endResize(){
+  if(!rz) return;
+  rz.el.classList.remove("resizing"); rz.el.querySelector(".sizehint")?.remove(); rz.el.draggable = true;
+  rz = null; applyLayout();
+}
+$("grid").addEventListener("pointerup", endResize);
+$("grid").addEventListener("pointercancel", endResize);
+$("grid").addEventListener("click", e => {
+  const b = e.target.closest(".tile-bar button"); if(!b) return;
+  const id = b.closest(".tile").dataset.tile, i = LAYOUT.findIndex(t => t.id === id), t = LAYOUT[i];
+  const act = b.dataset.act;
+  if(act === "left" && i > 0) [LAYOUT[i-1], LAYOUT[i]] = [LAYOUT[i], LAYOUT[i-1]];
+  if(act === "right" && i < LAYOUT.length-1) [LAYOUT[i+1], LAYOUT[i]] = [LAYOUT[i], LAYOUT[i+1]];
+  if(act === "narrow") t.span = Math.max(MIN_SPAN, t.span - 1);
+  if(act === "wide") t.span = Math.min(MAX_SPAN, t.span + 1);
+  if(act === "short") t.rows = Math.max(1, (t.rows || 1) - 1);
+  if(act === "tall") t.rows = Math.min(MAX_ROWS, (t.rows || 1) + 1);
+  if(act === "hide") t.hidden = true;
+  applyLayout();
+  const again = tileEl(id).querySelector('[data-act="' + act + '"]'); if(again && !again.disabled) again.focus();
+});
+$("hiddenTiles").addEventListener("click", e => {
+  const id = e.target.dataset.show; if(!id) return;
+  LAYOUT.find(t => t.id === id).hidden = false; applyLayout();
+});
+function setArranging(on){
+  document.body.classList.toggle("arranging", on);
+  $("btnArrange").setAttribute("aria-pressed", on ? "true" : "false");
+  document.querySelectorAll(".tile").forEach(el => el.draggable = on);
+  applyLayout();
+}
+$("btnArrange").addEventListener("click", () => setArranging(!document.body.classList.contains("arranging")));
+$("btnArrangeDone").addEventListener("click", () => setArranging(false));
+$("btnLayoutReset").addEventListener("click", () => { LAYOUT = DEFAULT_LAYOUT.map(x => ({...x})); applyLayout(); });
+let dragId = null;
+function clearDrop(){ document.querySelectorAll(".drop-before,.drop-after,.dragging").forEach(x => x.classList.remove("drop-before","drop-after","dragging")); }
+$("grid").addEventListener("dragstart", e => {
+  const el = e.target.closest(".tile"); if(!el || !document.body.classList.contains("arranging")) return;
+  dragId = el.dataset.tile; el.classList.add("dragging");
+  try{ e.dataTransfer.effectAllowed = "move"; e.dataTransfer.setData("text/plain", dragId); }catch(err){}
+});
+$("grid").addEventListener("dragover", e => {
+  if(!dragId) return; const el = e.target.closest(".tile"); if(!el || el.dataset.tile === dragId) return;
+  e.preventDefault();
+  const r = el.getBoundingClientRect(), after = e.clientX > r.left + r.width/2;
+  document.querySelectorAll(".drop-before,.drop-after").forEach(x => x.classList.remove("drop-before","drop-after"));
+  el.classList.add(after ? "drop-after" : "drop-before");
+});
+$("grid").addEventListener("drop", e => {
+  if(!dragId) return; e.preventDefault();
+  const el = e.target.closest(".tile");
+  if(el && el.dataset.tile !== dragId){
+    const after = el.classList.contains("drop-after");
+    const moving = LAYOUT.splice(LAYOUT.findIndex(t => t.id === dragId), 1)[0];
+    let idx = LAYOUT.findIndex(t => t.id === el.dataset.tile); if(after) idx++;
+    LAYOUT.splice(idx, 0, moving); applyLayout();
+  }
+  clearDrop(); dragId = null;
+});
+$("grid").addEventListener("dragend", () => { clearDrop(); dragId = null; });
+
+/* ================= Kalender (iCloud) ================= */
+let EVENTS = [], calIsSample = false, calError = false;
+const toHttps = u => u.trim().replace(/^webcal:\/\//i, "https://");
+async function loadIcs(urls){
+  const out = []; const now = new Date();
+  const from = new Date(now.getFullYear(), now.getMonth() - 1, 1);
+  const to = new Date(now.getFullYear(), now.getMonth() + 3, 0);
+  for(const raw of urls.split(",").map(s=>s.trim()).filter(Boolean)){
+    const comp = new ICAL.Component(ICAL.parse(await getText(proxied(toHttps(raw)))));
+    comp.getAllSubcomponents("vtimezone").forEach(tz => { try{ ICAL.TimezoneService.register(tz); }catch(e){} });
+    for(const v of comp.getAllSubcomponents("vevent")){
+      if(v.hasProperty("recurrence-id")) continue;
+      const ev = new ICAL.Event(v);
+      const push = (s, e) => out.push({id: ev.uid + "@" + s.toString(), title: ev.summary || "(ohne Titel)", location: ev.location || "",
+        start: s.toJSDate(), end: (e || s).toJSDate(), allDay: s.isDate});
+      if(ev.isRecurring()){
+        const it = ev.iterator(); let next, n = 0;
+        while((next = it.next()) && n++ < 1500){
+          if(next.toJSDate() > to) break;
+          const det = ev.getOccurrenceDetails(next);
+          if(det.endDate.toJSDate() >= from) push(det.startDate, det.endDate);
+        }
+      } else if(ev.startDate){
+        const e = ev.endDate || ev.startDate;
+        if(e.toJSDate() >= from && ev.startDate.toJSDate() <= to) push(ev.startDate, e);
+      }
+    }
+  }
+  return out.sort((a,b) => a.start - b.start);
+}
+function sampleEvents(){
+  const d = (h, m, add=0) => { const x = new Date(); x.setDate(x.getDate()+add); x.setHours(h, m, 0, 0); return x; };
+  return [
+    {id:"s1", title:"Team-Besprechung", location:"Raum 3.12", start:d(9,30), end:d(10,15), allDay:false},
+    {id:"s2", title:"Mittag mit Kolleginnen", location:"Kantine", start:d(12,15), end:d(13,0), allDay:false},
+    {id:"s3", title:"Zahnarzt", location:"Praxis", start:d(16,45), end:d(17,30), allDay:false},
+    {id:"s4", title:"Projekt-Abgabe", location:"", start:d(10,0,3), end:d(11,0,3), allDay:false}
+  ];
+}
+async function refreshCalendar(){
+  try{
+    if(CFG.icsCal && !CFG.proxy){ EVENTS = sampleEvents(); calIsSample = true; calError = "Kalender: Google-Skript fehlt noch"; }
+    else if(CFG.icsCal){ EVENTS = await loadIcs(CFG.icsCal); calIsSample = false; calError = false; }
+    else { EVENTS = sampleEvents(); calIsSample = true; }
+  }catch(e){ calError = true; console.warn(e); }
+  renderStrip(); renderMonth();
+}
+function todaysEvents(){
+  const key = dayKey(new Date());
+  return EVENTS.filter(e => e.allDay ? (dayKey(e.start) <= key && key < dayKey(e.end)) || dayKey(e.start) === key : dayKey(e.start) === key);
+}
+const bellSvg = '<svg class="i" viewBox="0 0 24 24" aria-label="Erinnerung an"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>';
+function renderStrip(){
+  const now = new Date(), list = todaysEvents();
+  const upcoming = list.filter(e => e.allDay || e.end > now), past = list.filter(e => !e.allDay && e.end <= now);
+  const shown = upcoming.slice(0, 4);
+  while(shown.length < 4 && past.length) shown.unshift(past.pop());
+  shown.sort((a,b) => a.start - b.start);
+  let html = '<div class="lbl"><b>Heute wichtig</b><span>' + (calError ? '<span class="sig">' + (typeof calError === "string" ? calError : "Kalender nicht erreichbar") + '</span>' :
+    calIsSample ? 'Beispiele – Kalender unter „Einstellungen“ verbinden' : "Erinnerung " + CFG.remindMin + " min vorher") + "</span></div>";
+  for(let i = 0; i < 4; i++){
+    const e = shown[i];
+    if(!e){ html += '<div class="ev free">Frei</div>'; continue; }
+    const cls = e.allDay ? "" : e.end <= now ? "past" : e.start <= now ? "now" : "";
+    const mins = Math.round((e.start - now) / 60000);
+    const t = e.allDay ? "ganztags" : fmtTime(e.start) + (cls === "now" ? " · läuft" : mins > 0 && mins <= 60 ? " · in " + mins + " min" : "");
+    html += '<div class="ev ' + cls + '"><span class="t">' + t + (notifyOn && !e.allDay && cls !== "past" ? bellSvg : "") + '</span><span class="n">' + esc(e.title) + "</span>" +
+      (e.location ? '<span class="l">' + esc(e.location) + "</span>" : "") + "</div>";
+  }
+  html += countdownCard();
+  $("strip").innerHTML = html;
+}
+function countdownCard(){
+  const now = new Date(), today0 = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const vac = vacations().find(v => v.to >= today0);
+  let hol = null;
+  for(let i = 1; i < 400 && !hol; i++){ const d = new Date(today0); d.setDate(d.getDate()+i); const n = holidayName(d); if(n) hol = {d, n}; }
+  const items = []; let binAlert = false;
+  const bins = nextWaste(today0);
+  if(bins){
+    const dd = daysBetween(today0, bins.date), types = bins.types.join(", ");
+    binAlert = dd === 0 || (dd === 1 && now.getHours() >= 14);
+    const when = dd === 0 ? "Heute" : dd === 1 ? "Morgen" : bins.date.toLocaleDateString("de-DE", {weekday:"short", day:"numeric", month:"numeric"});
+    items.push('<span class="' + (binAlert ? "bin-line" : "") + '">' + when + ": " + esc(types) + (dd === 1 && binAlert ? " – heute Abend rausstellen" : "") + "</span>");
+  }
+  if(vac){ const dd = daysBetween(today0, vac.from); items.push(dd <= 0 ? esc(vac.name) + " – noch " + (daysBetween(today0, vac.to) + 1) + " Tage" : esc(vac.name) + " in " + dd + " Tagen"); }
+  if(hol) items.push(esc(hol.n) + " in " + daysBetween(today0, hol.d) + " Tagen");
+  return '<div class="ev count' + (binAlert ? " bin" : "") + '"><span class="t">Demnächst</span><span class="n">' + (items.join("<br>") || "—") + "</span></div>";
+}
+
+/* ================= Müllabfuhr (aha-Kalenderdatei) ================= */
+let WASTE = store.get("waste", []);   // [{d:"2026-11-05", t:"Gelber Sack"}]
+function cleanWasteName(s){
+  s = String(s || "").replace(/\s+/g, " ").trim();
+  if(/leichtverpack|gelb/i.test(s)) return "Gelber Sack";
+  if(/bio/i.test(s)) return "Biotonne";
+  if(/papier|pappe|blau/i.test(s)) return "Papier";
+  if(/rest/i.test(s)) return "Restmüll";
+  if(/weihnacht|tannen/i.test(s)) return "Weihnachtsbäume";
+  return s.replace(/^aha[:\s-]*/i, "").slice(0, 40) || "Abfuhr";
+}
+function nextWaste(from){
+  const k0 = dayKey(from), up = WASTE.filter(w => w.d >= k0).sort((a,b) => a.d < b.d ? -1 : 1);
+  if(!up.length) return null;
+  const d = up[0].d, types = [...new Set(up.filter(w => w.d === d).map(w => w.t))];
+  const [y, m, dd] = d.split("-").map(Number);
+  return {date: new Date(y, m-1, dd), types};
+}
+function importWaste(text){
+  const comp = new ICAL.Component(ICAL.parse(text)), out = [];
+  const until = new Date(); until.setFullYear(until.getFullYear() + 2);
+  comp.getAllSubcomponents("vevent").forEach(v => {
+    const ev = new ICAL.Event(v), name = cleanWasteName(ev.summary);
+    if(ev.isRecurring()){
+      const it = ev.iterator(); let n, c = 0;
+      while((n = it.next()) && c++ < 400){ const d = n.toJSDate(); if(d > until) break; out.push({d: dayKey(d), t: name}); }
+    } else if(ev.startDate) out.push({d: dayKey(ev.startDate.toJSDate()), t: name});
+  });
+  const seen = new Set();
+  WASTE = out.filter(w => { const k = w.d + w.t; if(seen.has(k)) return false; seen.add(k); return true; }).sort((a,b) => a.d < b.d ? -1 : 1);
+  store.set("waste", WASTE);
+  return WASTE.length;
+}
+function wasteStatus(){
+  if(!WASTE.length) return "Noch keine Termine eingelesen.";
+  const last = WASTE[WASTE.length-1].d.split("-").reverse().join(".");
+  return WASTE.length + " Termine eingelesen, gültig bis " + last + ".";
+}
+
+/* ================= Schulferien Niedersachsen ================= */
+let FERIEN = store.get("ferien", {at:"", list:[]});
+async function refreshFerien(){
+  const today = dayKey(new Date());
+  if(FERIEN.at === today && FERIEN.list.length) return;
+  const y = new Date().getFullYear();
+  const url = "https://openholidaysapi.org/SchoolHolidays?countryIsoCode=DE&subdivisionCode=DE-NI&languageIsoCode=DE&validFrom=" + (y-1) + "-12-01&validTo=" + (y+1) + "-12-31";
+  let data = null;
+  try{ data = await getJSON(url); }catch(e){ try{ data = JSON.parse(await getText(proxied(url))); }catch(e2){ console.warn("Ferien", e2); } }
+  if(Array.isArray(data) && data.length){
+    FERIEN = {at: today, list: data.map(h => ({from: h.startDate, to: h.endDate,
+      name: ((h.name || []).find(n => n.language === "DE") || (h.name || [])[0] || {}).text || "Ferien"}))};
+    store.set("ferien", FERIEN); renderMonth();
+  }
+}
+const ferienAt = k => FERIEN.list.find(f => k >= f.from && k <= f.to);
+
+/* ================= Erinnerungen ================= */
+let notifyOn = store.get("notify", true), audioCtx = null;
+function unlockAudio(){
+  try{ audioCtx = audioCtx || new (window.AudioContext||window.webkitAudioContext)(); if(audioCtx.state === "suspended") audioCtx.resume(); }catch(e){}
+  $("soundHint").hidden = true;
+}
+document.addEventListener("pointerdown", unlockAudio, {once:true});
+function beep(){
+  try{ if(!audioCtx) return;
+    [0, .25].forEach(t => { const o = audioCtx.createOscillator(), g = audioCtx.createGain(); o.frequency.value = 880; g.gain.setValueAtTime(.15, audioCtx.currentTime+t); g.gain.exponentialRampToValueAtTime(.001, audioCtx.currentTime+t+.4); o.connect(g).connect(audioCtx.destination); o.start(audioCtx.currentTime+t); o.stop(audioCtx.currentTime+t+.45); });
+  }catch(e){}
+}
+function checkReminders(){
+  if(calIsSample || !notifyOn) return;
+  const now = new Date(), sent = store.get("sent", {}), lead = (+CFG.remindMin || 10) * 60000;
+  EVENTS.forEach(e => {
+    if(e.allDay || sent[e.id]) return;
+    const diff = e.start - now;
+    if(diff > 0 && diff <= lead){
+      sent[e.id] = 1;
+      const txt = "In " + Math.max(1, Math.round(diff/60000)) + " Min.: " + e.title + (e.location ? " (" + e.location + ")" : "");
+      $("remindText").textContent = txt; $("remind").hidden = false; beep();
+      try{ if(window.Notification && Notification.permission === "granted") new Notification("Termin", {body: txt}); }catch(err){}
+    }
+  });
+  store.set("sent", sent);
+}
+$("remindOk").addEventListener("click", () => $("remind").hidden = true);
+function updateNotifyBtn(){ $("btnNotify").setAttribute("aria-pressed", notifyOn ? "true" : "false"); $("btnNotify").title = notifyOn ? "Erinnerungen sind an" : "Erinnerungen sind aus"; }
+$("btnNotify").addEventListener("click", async () => {
+  notifyOn = !notifyOn; store.set("notify", notifyOn); updateNotifyBtn(); renderStrip();
+  if(notifyOn){ unlockAudio(); beep(); try{ if(window.Notification && Notification.permission === "default") await Notification.requestPermission(); }catch(e){} }
+});
+
+/* ================= Monat ================= */
+let monthOffset = 0;
+$("mPrev").addEventListener("click", () => { monthOffset--; renderMonth(); });
+$("mNext").addEventListener("click", () => { monthOffset++; renderMonth(); });
+function renderMonth(){
+  const now = new Date(), base = new Date(now.getFullYear(), now.getMonth() + monthOffset, 1), y = base.getFullYear(), m = base.getMonth();
+  const vacs = vacations();
+  const evDays = new Set(calIsSample ? [] : EVENTS.map(e => dayKey(e.start)));
+  $("monthName").textContent = base.toLocaleDateString("de-DE", {month:"long", year:"numeric"});
+  $("mKw").textContent = "KW " + isoWeek(now);
+  const start = new Date(base); start.setDate(1 - ((base.getDay()+6)%7));
+  const curWeek = isoWeek(now);
+  let html = '<thead><tr><th>KW</th>' + ["MO","DI","MI","DO","FR","SA","SO"].map(d=>"<th>"+d+"</th>").join("") + "</tr></thead><tbody>";
+  const d = new Date(start);
+  for(let w = 0; w < 6; w++){
+    if(w >= 4 && d.getMonth() !== m) break;
+    const thisWeek = isoWeek(d) === curWeek && Math.abs(daysBetween(now, d)) < 7;
+    html += '<tr><td class="kw">' + isoWeek(d) + "</td>";
+    for(let i = 0; i < 7; i++){
+      const k = dayKey(d), cls = [], hol = holidayName(d);
+      if(d.getMonth() !== m) cls.push("out");
+      if(i >= 5) cls.push("we");
+      if(hol) cls.push("hol");
+      if(thisWeek) cls.push("cw");
+      if(ferienAt(k)) cls.push("fer");
+      if(k === dayKey(now)) cls.push("today");
+      const v = vacs.find(v => d >= v.from && d <= v.to);
+      const tip = [hol, v ? v.name : ""].filter(Boolean).join(", ");
+      html += '<td class="' + cls.join(" ") + '"' + (tip ? ' title="' + esc(tip) + '"' : "") + ">" + d.getDate() +
+        (v ? '<span class="vb" style="background:' + v.color + '"></span>' : "") + (evDays.has(k) && d.getMonth() === m ? '<span class="ed"></span>' : "") + "</td>";
+      d.setDate(d.getDate()+1);
+    }
+    html += "</tr>";
+  }
+  $("month").innerHTML = html + "</tbody>";
+  const today0 = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  $("mLegend").innerHTML = vacs.filter(v => v.to >= today0).slice(0, 3).map(v => {
+    const dd = daysBetween(today0, v.from);
+    const f = x => x.toLocaleDateString("de-DE", {day:"numeric", month:"numeric"});
+    return '<span><i style="background:' + v.color + '"></i>' + esc(v.name) + " " + f(v.from) + (v.to > v.from ? "–" + f(v.to) : "") + " · " + workdays(v.from, v.to) + " Arbeitstage</span>" +
+      '<span class="when">' + (dd > 0 ? "in " + dd + " Tagen" : "läuft") + "</span>";
+  }).join("") || '<span class="note">Urlaub unter „Einstellungen“ eintragen.</span><span></span>';
+  const hols = Object.entries(holidaysNI(y)).filter(([k]) => +k.slice(5,7) === m+1);
+  const mFrom = dayKey(new Date(y, m, 1)), mTo = dayKey(new Date(y, m+1, 0)), todayK = dayKey(now);
+  const fd = s => s.slice(8) + "." + s.slice(5,7) + ".";
+  let fer = FERIEN.list.filter(f => f.to >= mFrom && f.from <= mTo);
+  if(!fer.length) fer = FERIEN.list.filter(f => f.from >= todayK).sort((a,b) => a.from < b.from ? -1 : 1).slice(0, 1);
+  $("mHol").innerHTML = hols.map(([k, n]) => "<span><b>" + (+k.slice(8)) + ".</b> " + esc(n) + "</span>").join("") +
+    fer.map(f => '<span class="fer">' + esc(f.name) + " " + fd(f.from) + "–" + fd(f.to) + "</span>").join("");
+}
+
+/* ================= Adressen ================= */
+async function geocode(addr){
+  const r = await getJSON("https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=de&q=" + encodeURIComponent(addr));
+  if(!r.length) throw new Error("Adresse nicht gefunden"); return {lat:+r[0].lat, lon:+r[0].lon};
+}
+async function ensureCoords(){
+  const sig = "v2|" + CFG.homeAddr + "|" + CFG.workAddr;
+  if(CFG.geoFor === sig) return;
+  if(CFG.homeAddr) try{ CFG.home = await geocode(CFG.homeAddr); }catch(e){ console.warn(e); }
+  if(CFG.workAddr) try{ CFG.work = await geocode(CFG.workAddr); }catch(e){ console.warn(e); }
+  CFG.geoFor = sig; store.set("cfg", CFG); store.set("tstops_home", null); store.set("tstops_work", null);
+}
+
+/* ================= ÖPNV ================= */
+/* Meine Wege: feste Verbindungen von Zuhause zu den Zielen aus den Einstellungen (Fahrplan über Transitous) */
+const API = "https://api.transitous.org/api/v1";
+const MODE_CLASS = {BUS:"bus", COACH:"bus", SUBWAY:"tram", TRAM:"tram", METRO:"tram", SUBURBAN:"sbahn"};
+const MODE_NAME = {BUS:"Bus", SUBWAY:"Stadtbahn", TRAM:"Stadtbahn", SUBURBAN:"S-Bahn", REGIONAL:"Regionalzug", RAIL:"Zug", HIGHSPEED_RAIL:"Fernzug", LONG_DISTANCE:"Fernzug", COACH:"Fernbus"};
+function lineBadge(x){
+  if(!x) return "";
+  const name = x.routeShortName || x.displayName || x.tripShortName || "";
+  if(!name) return "";
+  return '<span class="ln ' + (MODE_CLASS[x.mode] || "") + '" title="' + esc(MODE_NAME[x.mode] || x.mode || "") + '">' + esc(name) + "</span>";
+}
+const shortStop = s => String(s || "").replace(/^Hannover\s+/, "");
+const DEFAULT_DESTS = "";
+function destinations(){
+  return String(CFG.dests ?? DEFAULT_DESTS).split(/\n+/).map(l => l.trim()).filter(Boolean).slice(0, 4).map(l => {
+    const [a, b] = l.split("|").map(x => x.trim());
+    return b ? {name: a, addr: b} : {name: a.split(",")[0], addr: a};
+  });
+}
+const GEO = store.get("geo", {});
+async function coordsFor(addr){
+  if(GEO[addr]) return GEO[addr];
+  const p = await geocode(addr); GEO[addr] = p; store.set("geo", GEO); return p;
+}
+let ROUTES = [];
+let DISRUPT = {dep:[], trip:[]};
+function collectAlerts(list, lineOf){
+  const out = [];
+  (list || []).forEach(x => [...(x.alerts || []), ...((x.place && x.place.alerts) || [])].forEach(a => {
+    const txt = String(a.headerText || a.descriptionText || "").replace(/\s+/g, " ").trim();
+    if(txt.length < 6) return;
+    out.push({line: lineOf(x), text: txt.length > 170 ? txt.slice(0, 167) + " …" : txt});
+  }));
+  return out;
+}
+function renderDisrupt(){
+  const seen = new Set(), items = [];
+  [...DISRUPT.dep, ...DISRUPT.trip].forEach(d => { const k = d.text.toLowerCase(); if(!seen.has(k)){ seen.add(k); items.push(d); } });
+  const warnSvg = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3 2 21h20L12 3z"/></svg>';
+  $("disrupt").innerHTML = items.slice(0, 3).map(d => '<div class="alert">' + warnSvg + "<span>" + (d.line ? lineBadge(d.line) + " " : "") + '<small style="display:inline;color:var(--ink)">' + esc(d.text) + "</small></span></div>").join("") +
+    (items.length > 3 ? '<p class="note">+ ' + (items.length - 3) + " weitere Hinweise</p>" : "");
+}
+let tripTime = store.get("tripTime", "");
+$("tripTime").value = tripTime;
+$("tripForm").addEventListener("submit", e => { e.preventDefault(); tripTime = $("tripTime").value; store.set("tripTime", tripTime); refreshTrip(); });
+$("tripNow").addEventListener("click", () => { tripTime = ""; $("tripTime").value = ""; store.set("tripTime", ""); refreshTrip(); });
+const itStart = j => new Date(j.startTime), itEnd = j => new Date(j.endTime);
+async function refreshTrip(){
+  const now = new Date(), target = tripTime ? nextOccurrence(tripTime, now) : null, A = CFG.home;
+  $("tripWhen").textContent = target ? "Abfahrt ab " + fmtTime(target) + " " + relDay(target) : "ab jetzt";
+  const dests = destinations();
+  if(!dests.length || !CFG.homeAddr){
+    ROUTES = []; $("routes").innerHTML = '<p class="note">Trag in den <button type="button" class="linkish" onclick="openSettings()">Einstellungen</button> deinen Wohnort und unter „Meine Wege“ deine Ziele ein, dann erscheinen hier deine Verbindungen.</p>'; return;
+  }
+  ROUTES = await Promise.all(dests.map(async d => {
+    try{
+      const B = await coordsFor(d.addr);
+      const r = await getJSON(API + "/plan?fromPlace=" + A.lat + "," + A.lon + "&toPlace=" + B.lat + "," + B.lon +
+        "&numItineraries=5" + (target ? "&time=" + encodeURIComponent(target.toISOString()) : ""), 25000);
+      const js = (r.itineraries || []).filter(j => j.legs && j.legs.length).sort((a,b) => itStart(a) - itStart(b));
+      return {...d, journeys: js, err: js.length ? "" : "Keine Verbindung gefunden."};
+    }catch(e){ console.warn(d.addr, e); return {...d, journeys: [], err: "Gerade nicht abrufbar, neuer Versuch gleich."}; }
+  }));
+  DISRUPT.trip = collectAlerts(ROUTES.flatMap(r => r.journeys.slice(0, 2).flatMap(j => j.legs.filter(l => l.mode !== "WALK"))), l => l);
+  renderTrips(); renderDisrupt();
+}
+function ampelHtml(j, now){
+  if(CFG.ampel === false) return "";
+  const leave = itStart(j), mins = Math.round((leave - now) / 60000);
+  const first = j.legs.find(l => l.mode !== "WALK");
+  const ride = first ? lineBadge(first) + " " + fmtTime(new Date(first.startTime)) + " ab " + esc(shortStop(first.from && first.from.name)) : "";
+  const w = weatherAt(WX.home, leave);
+  const rain = w && w.prob >= 50 ? " · <b>Schirm!</b>" : "";
+  let cls, big;
+  if(mins > 120){ cls = "later"; big = "Losgehen " + relDay(leave) + " " + fmtTime(leave); }
+  else if(mins > 10){ cls = "green"; big = "Noch " + mins + " Min."; }
+  else if(mins > 2){ cls = "yellow"; big = "In " + mins + " Min. los"; }
+  else { cls = "red"; big = mins >= 0 ? "Jetzt los!" : "Sofort los!"; }
+  return '<div class="ampel ' + cls + '"><span class="light" aria-hidden="true"></span><b>' + big + "</b>" + (ride ? "<span>· " + ride + "</span>" : "") + rain + "</div>";
+}
+function renderTrips(){
+  const now = new Date(), box = $("routes");
+  if(!ROUTES.length){ box.innerHTML = '<p class="note">Verbindungen werden geladen …</p>'; return; }
+  let needRefresh = false;
+  box.innerHTML = ROUTES.map((r, ri) => {
+    const js = r.journeys.filter(j => itStart(j) > new Date(now.getTime() - 60000)).slice(0, 3);
+    if(!js.length && r.journeys.length) needRefresh = true;
+    const head = '<div class="sub">→ ' + esc(r.name) + '<span class="muted" style="text-transform:none;letter-spacing:0;font-weight:400"> · ' + esc(r.addr.split(",")[0]) + "</span></div>";
+    if(!js.length) return '<div class="route">' + head + '<p class="err">' + esc(r.err || "Verbindungen werden geladen …") + "</p></div>";
+    const list = js.map((j, n) => {
+      const dep = itStart(j), arr = itEnd(j), transit = j.legs.filter(l => l.mode !== "WALK"), mins = Math.round((dep - now)/60000);
+      const late = transit.some(l => l.scheduledStartTime && new Date(l.startTime) - new Date(l.scheduledStartTime) >= 180000);
+      const when = mins <= 0 ? "jetzt" : mins <= 120 ? "in " + mins + " min" : relDay(dep);
+      const legs = j.legs.map(l => {
+        const d = new Date(l.startTime), a = new Date(l.endTime);
+        if(l.mode === "WALK"){ const m = Math.round((a-d)/60000); const dest = l.to && l.to.name !== "END" ? " bis " + esc(shortStop(l.to.name)) : " zum Ziel"; return m < 1 ? "" : '<li class="muted">' + m + " min zu Fuß" + dest + "</li>"; }
+        const dly = l.scheduledStartTime ? Math.round((d - new Date(l.scheduledStartTime))/60000) : 0;
+        return "<li><b class=\"mono\">" + fmtTime(d) + "</b> " + lineBadge(l) + " ab " + esc(shortStop(l.from && l.from.name)) + (dly > 0 ? ' <span class="sig">+' + dly + "</span>" : "") +
+          " → <b class=\"mono\">" + fmtTime(a) + "</b> " + esc(shortStop(l.to && l.to.name)) + "</li>";
+      }).join("");
+      return '<details class="jr"><summary><span class="dep"><b class="' + (late ? "late" : "") + '">' + fmtTime(dep) + "</b><small>" + when + "</small></span>" +
+        '<span class="chain">' + transit.map(l => lineBadge(l)).join('<span class="sep">›</span>') + "</span>" +
+        '<span class="arr">an <b>' + fmtTime(arr) + "</b></span></summary><ul class=\"legs\">" + legs + "</ul></details>";
+    }).join("");
+    return '<div class="route">' + head + ampelHtml(js[0], now) + list + "</div>";
+  }).join("");
+  const firstStop = ROUTES.flatMap(r => r.journeys).map(j => j.legs.find(l => l.mode !== "WALK")).find(Boolean);
+  $("depStop").textContent = firstStop ? "ab " + shortStop(firstStop.from.name) : "ab Zuhause";
+  if(needRefresh) refreshTrip();
+}
+const renderAmpel = () => { if(ROUTES.length) renderTrips(); };
+$("ampelToggle").checked = CFG.ampel !== false;
+$("ampelToggle").addEventListener("change", e => { CFG.ampel = e.target.checked; store.set("cfg", CFG); renderTrips(); });
+const refreshDepartures = () => {};
+
+/* ================= Wetter ================= */
+const WMO = {0:"Klar",1:"Überwiegend klar",2:"Teils bewölkt",3:"Bedeckt",45:"Nebel",48:"Nebel mit Reif",51:"Leichter Niesel",53:"Nieselregen",55:"Starker Niesel",56:"Gefrierender Niesel",57:"Gefrierender Niesel",61:"Leichter Regen",63:"Regen",65:"Starker Regen",66:"Gefrierender Regen",67:"Gefrierender Regen",71:"Leichter Schnee",73:"Schnee",75:"Starker Schnee",77:"Schneegriesel",80:"Regenschauer",81:"Regenschauer",82:"Heftige Schauer",85:"Schneeschauer",86:"Schneeschauer",95:"Gewitter",96:"Gewitter mit Hagel",99:"Gewitter mit Hagel"};
+const uvText = u => u < 3 ? "niedrig" : u < 6 ? "mäßig" : u < 8 ? "hoch" : u < 11 ? "sehr hoch" : "extrem";
+function wxIcon(code){
+  const sun = '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>';
+  const cloudHi = '<path d="M7 15h10a4 4 0 0 0 .6-7.95A6 6 0 0 0 6.3 7.1 4 4 0 0 0 7 15z"/>';
+  let inner;
+  if(code <= 1) inner = sun;
+  else if(code === 2) inner = '<circle cx="8" cy="8" r="3"/><path d="M8 2v1.5M2 8h1.5M3.8 3.8l1 1M12.2 3.8l-1 1"/><path d="M9 20h9a3.5 3.5 0 0 0 .5-6.96A5 5 0 0 0 9 13.3 3.4 3.4 0 0 0 9 20z"/>';
+  else if(code === 3) inner = '<path d="M7 19h10a4 4 0 0 0 .6-7.95A6 6 0 0 0 6.3 11.1 4 4 0 0 0 7 19z"/>';
+  else if(code === 45 || code === 48) inner = '<path d="M4 9h16M3 13h18M5 17h14"/>';
+  else if(code >= 95) inner = cloudHi + '<path d="M12 15l-2 4h3l-2 4"/>';
+  else if((code >= 71 && code <= 77) || code === 85 || code === 86) inner = cloudHi + '<path d="M8 18v.01M12 20v.01M16 18v.01M10 22v.01M14 22v.01" stroke-width="2.6"/>';
+  else inner = cloudHi + '<path d="M8 18l-1 3M12 18l-1 3M16 18l-1 3"/>';
+  return '<svg viewBox="0 0 24 24" aria-hidden="true">' + inner + "</svg>";
+}
+const WX = {home:null, work:null};
+const forecastUrl = p => "https://api.open-meteo.com/v1/forecast?latitude=" + p.lat + "&longitude=" + p.lon +
+  "&current=temperature_2m,apparent_temperature,weather_code,wind_speed_10m,relative_humidity_2m,visibility" +
+  "&hourly=temperature_2m,precipitation_probability,precipitation,weather_code,visibility" +
+  "&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,precipitation_sum,uv_index_max,sunrise,sunset" +
+  "&timezone=Europe%2FBerlin&forecast_days=7&wind_speed_unit=kmh";
+function weatherAt(f, when){
+  if(!f) return null;
+  const h0 = new Date(when); h0.setMinutes(0, 0, 0);
+  const h1 = new Date(h0.getTime() + 3600000);
+  const i0 = f.hourly.time.indexOf(hourKey(h0)), i1 = f.hourly.time.indexOf(hourKey(h1));
+  if(i0 < 0) return null;
+  const frac = when.getMinutes() / 60, j = i1 < 0 ? i0 : i1, H = f.hourly;
+  return {
+    prob: frac > 0 ? Math.max(H.precipitation_probability[i0], H.precipitation_probability[j]) : H.precipitation_probability[i0],
+    mm: frac >= .5 ? H.precipitation[j] : H.precipitation[i0],
+    temp: H.temperature_2m[i0] + (H.temperature_2m[j] - H.temperature_2m[i0]) * frac,
+    code: frac >= .5 ? H.weather_code[j] : H.weather_code[i0]
+  };
+}
+let WXTIMES = store.get("wxtimes", [{time:"06:30", label:"Losgehen", loc:"home"}, {time:"16:30", label:"Heimweg", loc:"work"}]);
+function renderWxTimes(){
+  const now = new Date();
+  const rows = WXTIMES.map((t, idx) => ({...t, idx, at: nextOccurrence(t.time, now)})).sort((a,b) => a.at - b.at);
+  $("wxChips").innerHTML = '<ul class="wtl">' + rows.map(t => {
+    const w = weatherAt(WX[t.loc], t.at), lv = w ? levelClass(w.prob) : "";
+    const cond = w ? (WMO[w.code] || "") + (w.mm >= .1 ? ", " + w.mm.toFixed(1).replace(".", ",") + " mm" : "") : "";
+    return '<li class="' + lv + '"><b class="tm">' + t.time + "</b>" +
+      '<span class="lb">' + esc(t.label || "Zeitpunkt") + (relDay(t.at) !== "heute" ? ' <span class="tg">' + relDay(t.at) + "</span>" : "") +
+      '<small><button type="button" class="loc" data-loc="' + t.idx + '" title="Ort wechseln">' + (t.loc === "work" ? "Büro" : "Zuhause") + "</button>" + (cond ? " · " + esc(cond) : "") + "</small></span>" +
+      '<span class="rp">' + (w ? "Regen <b>" + w.prob + " %</b>" : "lädt …") + '<span class="bar"><i style="width:' + (w ? w.prob : 0) + '%"></i></span></span>' +
+      '<span class="tt">' + (w ? Math.round(w.temp) + "°" : "") + "</span>" +
+      '<button type="button" class="x" data-del="' + t.idx + '" aria-label="' + esc(t.time + " entfernen") + '">×</button></li>';
+  }).join("") + '</ul><button type="button" class="addt" id="btnAddTime">+ Uhrzeit</button>';
+  const first = rows[0], w = first && weatherAt(WX[first.loc], first.at);
+  if(!first) $("wxHeadTxt").textContent = "Trag eine Uhrzeit ein, dann sage ich dir, ob es dann regnet.";
+  else if(!w) $("wxHeadTxt").textContent = "Vorhersage wird geladen …";
+  else {
+    const verdict = w.prob >= 60 ? "Regen wahrscheinlich – Schirm mitnehmen" : w.prob >= 30 ? "vielleicht etwas Regen" : "voraussichtlich trocken";
+    $("wxHeadTxt").textContent = "Gegen " + first.time + " Uhr" + (relDay(first.at) !== "heute" ? " (" + relDay(first.at) + ")" : "") + (first.label ? ", " + first.label + ":" : "") + " " + verdict + " (" + w.prob + " %), " + Math.round(w.temp) + "°";
+  }
+}
+$("wxChips").addEventListener("click", e => {
+  if(e.target.id === "btnAddTime"){ $("wxAdd").hidden = !$("wxAdd").hidden; if(!$("wxAdd").hidden){ $("wxAddLoc").value = here(); $("wxAddTime").focus(); } return; }
+  const l = e.target.dataset.loc;
+  if(l != null){ const t = WXTIMES[+l]; t.loc = t.loc === "work" ? "home" : "work"; store.set("wxtimes", WXTIMES); renderWxTimes(); return; }
+  const i = e.target.dataset.del; if(i == null) return;
+  WXTIMES.splice(+i, 1); store.set("wxtimes", WXTIMES); renderWxTimes();
+});
+$("wxAdd").addEventListener("submit", e => {
+  e.preventDefault(); const time = $("wxAddTime").value; if(!time) return;
+  WXTIMES.push({time, label:$("wxAddLabel").value.trim(), loc:$("wxAddLoc").value});
+  store.set("wxtimes", WXTIMES); $("wxAddTime").value = ""; $("wxAddLabel").value = ""; $("wxAdd").hidden = true; renderWxTimes();
+});
+function renderWeatherNow(){
+  const where = here(), f = WX[where]; if(!f) return;
+  const c = f.current;
+  $("wxPlace").textContent = PLACE[where];
+  $("wxTemp").textContent = Math.round(c.temperature_2m) + "°";
+  $("wxSmall").innerHTML = esc(WMO[c.weather_code] || "") + "<br>Wind " + Math.round(c.wind_speed_10m) + " km/h · gefühlt " + Math.round(c.apparent_temperature) + "°";
+  let i0 = f.hourly.time.findIndex(t => t.slice(0,13) === c.time.slice(0,13)); if(i0 < 0) i0 = 0;
+  const probs = f.hourly.precipitation_probability.slice(i0, i0+12), hrs = f.hourly.time.slice(i0, i0+12);
+  $("wxHours").innerHTML = probs.map((p, i) => '<div class="' + levelClass(p) + '" style="height:' + Math.max(8, p) + '%" title="' + hrs[i].slice(11) + " Uhr: " + p + ' % Regen"></div>').join("");
+  $("wxHx").innerHTML = hrs.map((h, i) => '<span class="' + (i === 0 ? "cur" : "") + '">' + (+h.slice(11,13)) + "</span>").join("");
+  $("fcPlace").textContent = PLACE[where];
+  renderForecast(f);
+}
+function renderForecast(f){
+  if(!f || !f.daily || !f.daily.time){ $("fc").innerHTML = '<p class="note">Vorhersage gerade nicht abrufbar, neuer Versuch in 10 Minuten.</p>'; return; }
+  const D = f.daily, todayK = dayKey(new Date());
+  $("fc").innerHTML = D.time.map((t, i) => {
+    const d = new Date(t + "T12:00:00"), wd = d.getDay(), p = D.precipitation_probability_max[i];
+    const name = t === todayK ? "Heute" : i === 1 ? "Morgen" : d.toLocaleDateString("de-DE", {weekday:"short"}) + " " + d.getDate() + ".";
+    const tip = (WMO[D.weather_code[i]] || "") + ", Regen " + p + " %" + (D.precipitation_sum[i] >= .5 ? ", " + D.precipitation_sum[i].toFixed(1).replace(".", ",") + " mm" : "");
+    return '<div title="' + esc(tip) + '">' + wxIcon(D.weather_code[i]) + '<span class="d' + (wd === 0 || wd === 6 || holidayName(d) ? " we" : "") + '">' + name + "</span>" +
+      '<span class="t"><span class="mx">' + Math.round(D.temperature_2m_max[i]) + '°</span> <span class="mn">' + Math.round(D.temperature_2m_min[i]) + "°</span>" +
+      '<span class="pr' + (p >= 60 ? " hi" : "") + '">' + p + " %</span></span></div>";
+  }).join("");
+}
+let FACTS = {pollen:null, air:null};
+function renderFacts(){
+  const f = WX[here()]; const out = [];
+  if(FACTS.pollen) out.push(FACTS.pollen);
+  if(f){ const uv = f.daily.uv_index_max[0]; out.push('<span class="' + (uv >= 8 ? "hi" : uv >= 6 ? "mid" : "") + '">UV ' + Math.round(uv) + " " + uvText(uv) + "</span>"); }
+  if(FACTS.air) out.push(FACTS.air);
+  $("wxFacts").innerHTML = out.join("");
+}
+let ALERTS = [];
+function renderAlerts(){
+  const f = WX[here()], items = [];
+  const warnSvg = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3 2 21h20L12 3z"/></svg>';
+  const vis = f && f.current.visibility, code = f && f.current.weather_code;
+  if(f && (vis < 1000 || code === 45 || code === 48)) items.push('<div class="alert">' + warnSvg + "<span>NEBEL<small>Sichtweite etwa " + (vis < 1000 ? Math.round(vis/10)*10 + " m" : "unter 1 km") + "</small></span></div>");
+  ALERTS.slice(0, 2).forEach(a => items.push('<div class="alert">' + warnSvg + "<span>" + esc((a.event_de || "Warnung").toUpperCase()) + "<small>" + esc(a.headline_de || "") +
+    (a.expires ? " · bis " + new Date(a.expires).toLocaleString("de-DE", {weekday:"short", hour:"2-digit", minute:"2-digit"}) : "") + "</small></span></div>"));
+  $("wxAlerts").innerHTML = items.join("");
+}
+async function refreshWeather(){
+  try{
+    const [fh, fw] = await Promise.all([getJSON(forecastUrl(CFG.home)), getJSON(forecastUrl(CFG.work)).catch(() => null)]);
+    WX.home = fh; WX.work = fw || fh;
+    const s = WX.home.daily; $("kw").title = "Sonne " + s.sunrise[0].slice(11) + "–" + s.sunset[0].slice(11);
+  }catch(e){ console.warn(e); $("wxHeadTxt").textContent = "Wetterdaten gerade nicht erreichbar."; }
+  renderWeatherNow(); renderWxTimes(); renderFacts(); renderAlerts(); renderAmpel();
+  if(isNight() !== lastNight){ lastNight = isNight(); applyLook(effDesign(), CFG.scale); updateModeLabel(); }
+  const p = CFG[here()];
+  try{
+    const a = await getJSON("https://air-quality-api.open-meteo.com/v1/air-quality?latitude=" + p.lat + "&longitude=" + p.lon +
+      "&current=european_aqi&hourly=alder_pollen,birch_pollen,grass_pollen,mugwort_pollen,ragweed_pollen&timezone=Europe%2FBerlin&forecast_days=1");
+    const names = {alder_pollen:"Erle", birch_pollen:"Birke", grass_pollen:"Gräser", mugwort_pollen:"Beifuß", ragweed_pollen:"Ambrosia"};
+    const act = Object.keys(names).map(k => [names[k], Math.max(0, ...(a.hourly[k] || []).filter(v => v != null))]).filter(([,v]) => v >= 10).sort((x,y) => y[1]-x[1]);
+    FACTS.pollen = act.length ? '<span class="' + (act[0][1] >= 50 ? "hi" : act[0][1] >= 20 ? "mid" : "") + '">Pollen: ' + act.map(x => x[0]).join(", ") + "</span>" : "<span>Kaum Pollen</span>";
+    const q = a.current && a.current.european_aqi;
+    if(q != null) FACTS.air = '<span class="' + (q > 60 ? "hi" : q > 40 ? "mid" : "") + '">Luft ' + (q <= 20 ? "gut" : q <= 40 ? "ordentlich" : q <= 60 ? "mäßig" : "schlecht") + "</span>";
+  }catch(e){ console.warn(e); }
+  try{
+    const w = await getJSON("https://api.brightsky.dev/alerts?lat=" + p.lat + "&lon=" + p.lon);
+    ALERTS = w.alerts || [];
+  }catch(e){ console.warn(e); }
+  renderFacts(); renderAlerts();
+}
+
+/* ================= Regenradar mit Zeitleiste ================= */
+var map; let radarLayer, baseLayer, pin, frames = [], frameIdx = 11, playTimer = null, timeOk = true;
+function radarFrames(){
+  const step = 5*60000, end = Math.floor((Date.now() - 10*60000) / step) * step;
+  return Array.from({length:12}, (_, i) => new Date(end - (11 - i) * step));
+}
+function setBaseLayer(){
+  if(!window.map || !window.L) return;
+  const dark = ["nacht","bahnhof","appledark"].includes(document.documentElement.dataset.design);
+  if(baseLayer) map.removeLayer(baseLayer);
+  baseLayer = L.tileLayer("https://sgx.geodatenzentrum.de/wmts_topplus_open/tile/1.0.0/web_grau/default/WEBMERCATOR/{z}/{y}/{x}.png",
+    {maxZoom:14, attribution:"Karte © BKG (TopPlusOpen)", className: dark ? "tiles-dark" : ""}).addTo(map);
+  baseLayer.bringToBack();
+}
+function setFrame(i){
+  frameIdx = i; $("radarSlider").value = i;
+  const t = frames[i]; if(!t || !radarLayer) return;
+  $("radarTime").textContent = fmtTime(t);
+  if(timeOk) radarLayer.setParams({time: t.toISOString().replace(/\.\d{3}Z$/, "Z")});
+}
+function initRadar(){
+  if(!window.L){ $("radar").innerHTML = '<p class="err" style="padding:12px">Karte konnte nicht geladen werden.</p>'; return; }
+  const p = CFG[here()];
+  map = L.map("radar", {zoomControl:true, attributionControl:true, scrollWheelZoom:false}).setView([p.lat, p.lon], 10);
+  window.map = map; setBaseLayer();
+  radarLayer = L.tileLayer.wms("https://maps.dwd.de/geoserver/dwd/wms", {layers:"dwd:Niederschlagsradar", format:"image/png", transparent:true, version:"1.3.0", opacity:.75, attribution:"Radar © DWD"}).addTo(map);
+  radarLayer.on("tileerror", () => {
+    if(timeOk && radarLayer.wmsParams.time){ timeOk = false; delete radarLayer.wmsParams.time; radarLayer.redraw(); $("radarPlay").hidden = true; $("radarSlider").disabled = true; $("radarTime").textContent = "aktuell"; }
+  });
+  pin = L.circleMarker([p.lat, p.lon], {radius:6, color:"#a32f28", weight:3, fillColor:"#ffffff", fillOpacity:1}).addTo(map);
+  refreshRadar();
+}
+function applyRadarSrc(){
+  const useUrl = CFG.radarSrc === "url" && /^https:\/\//.test(CFG.radarUrl || "");
+  let fr = document.getElementById("radarFrame");
+  $("radar").hidden = useUrl; $("radarPlay").hidden = useUrl; document.querySelector(".timeline").hidden = useUrl;
+  if(useUrl){
+    if(!fr){ $("radar").insertAdjacentHTML("afterend", '<iframe id="radarFrame" class="radar-frame" title="Regenradar" referrerpolicy="no-referrer"></iframe>'); fr = document.getElementById("radarFrame"); }
+    if(fr.src !== CFG.radarUrl) fr.src = CFG.radarUrl;
+  } else if(fr){ fr.remove(); if(window.map) setTimeout(() => map.invalidateSize(), 60); }
+}
+function refreshRadar(){
+  if(!radarLayer) return;
+  frames = radarFrames();
+  if(!playTimer) setFrame(11);
+}
+function recenterRadar(){
+  if(!map) return; const p = CFG[here()]; map.setView([p.lat, p.lon], map.getZoom()); pin.setLatLng([p.lat, p.lon]);
+}
+$("radarSlider").addEventListener("input", e => { stopPlay(); setFrame(+e.target.value); });
+function stopPlay(){ if(playTimer){ clearInterval(playTimer); playTimer = null; $("radarPlay").textContent = "▶ Abspielen"; } }
+$("radarPlay").addEventListener("click", () => {
+  if(playTimer){ stopPlay(); setFrame(11); return; }
+  frames = radarFrames(); let i = 0; setFrame(0); $("radarPlay").textContent = "■ Stopp";
+  playTimer = setInterval(() => { i++; if(i > 11){ stopPlay(); return; } setFrame(i); }, 900);
+});
+
+/* ================= Nachrichten ================= */
+let NEWS = [], newsPage = 0, newsTimer = null;
+const PER_PAGE = 2;
+async function refreshNews(){
+  const items = [], seen = new Set(); let failed = 0;
+  const keys = (CFG.feeds && CFG.feeds.length ? CFG.feeds : DEFAULTS.feeds).filter(k => FEEDS[k]);
+  await Promise.all(keys.map(async k => {
+    const f = FEEDS[k];
+    try{
+      const data = await getJSON(f.url);
+      (data.news || []).filter(n => n.title && (n.shareURL || n.detailsweb)).slice(0, 10).forEach(n => {
+        const id = n.sophoraId || n.externalId || n.title; if(seen.has(id)) return; seen.add(id);
+        items.push({src: f.name + (n.topline ? " · " + n.topline : ""), title: n.title, link: n.shareURL || n.detailsweb, date: new Date(n.date || 0), desc: n.firstSentence || ""});
+      });
+    }catch(e){ failed++; console.warn(f.name, e); }
+  }));
+  if(items.length){ NEWS = items.sort((a,b) => b.date - a.date).slice(0, 20); newsPage = 0; }
+  renderNews(failed && !items.length);
+}
+function renderNews(fail){
+  if(!NEWS.length){
+    $("newsBox").innerHTML = fail ? '<p class="err">Nachrichten gerade nicht abrufbar. Ich versuche es in ein paar Minuten wieder.</p>' : '<p class="note">Schlagzeilen werden geladen …</p>';
+    $("newsDots").innerHTML = ""; return;
+  }
+  const pages = Math.ceil(NEWS.length / PER_PAGE); newsPage %= pages;
+  $("newsBox").innerHTML = NEWS.slice(newsPage * PER_PAGE, newsPage * PER_PAGE + PER_PAGE).map(n =>
+    '<div class="ni"><a href="' + esc(n.link) + '" target="_blank" rel="noopener">' + esc(n.title) + "</a>" +
+    '<span class="meta">' + esc(n.src) + (n.date.getTime() ? " · " + fmtTime(n.date) : "") + "</span>" + (n.desc ? "<p>" + esc(n.desc) + "</p>" : "") + "</div>").join("");
+  $("newsDots").innerHTML = Array.from({length:pages}, (_, i) => '<button type="button" data-p="' + i + '" aria-label="Seite ' + (i+1) + '"' + (i === newsPage ? ' aria-current="true"' : "") + "></button>").join("");
+}
+$("newsDots").addEventListener("click", e => { const p = e.target.dataset.p; if(p == null) return; newsPage = +p; renderNews(); restartNewsTimer(); });
+function restartNewsTimer(){ clearInterval(newsTimer); newsTimer = setInterval(() => { if(!document.querySelector('[data-tile="news"]:hover')){ newsPage++; renderNews(); } }, 15000); }
+$("btnFeeds").addEventListener("click", () => { openSettings(); setTimeout(() => $("feedSet").scrollIntoView({block:"center"}), 50); });
+
+/* ================= Einstellungen ================= */
+const FIELDS = ["icsCal","vacation","remindMin","homeAddr","workAddr","radarUrl"];
+$("feedChecks").innerHTML = Object.entries(FEEDS).map(([k, f]) => '<label><input type="checkbox" name="feed" value="' + k + '"> ' + esc(f.name) + "</label>").join("");
+$("nightMode").addEventListener("change", () => $("nightTimes").hidden = $("nightMode").value !== "fixed");
+$("wasteFile").addEventListener("change", async () => {
+  const f = $("wasteFile").files[0]; if(!f) return;
+  try{ const n = importWaste(await f.text()); $("wasteState").textContent = n ? wasteStatus() : "In der Datei wurden keine Termine gefunden."; renderStrip(); }
+  catch(e){ console.warn(e); $("wasteState").textContent = "Die Datei konnte nicht gelesen werden. Bitte die iCal-Datei von aha wählen."; }
+});
+$("wasteClear").addEventListener("click", () => { WASTE = []; store.set("waste", WASTE); $("wasteState").textContent = wasteStatus(); renderStrip(); });
+function openSettings(){
+  FIELDS.forEach(k => $(k).value = CFG[k] ?? "");
+  const known = [...$("proxy").options].some(o => o.value === CFG.proxy);
+  $("proxy").value = known ? CFG.proxy : "custom"; $("proxyCustom").hidden = known; $("proxyCustom").value = known ? "" : CFG.proxy;
+  document.querySelectorAll('input[name="design"]').forEach(r => r.checked = r.value === CFG.design);
+  document.querySelectorAll('input[name="scale"]').forEach(r => r.checked = +r.value === +CFG.scale);
+  document.querySelectorAll('input[name="font"]').forEach(r => r.checked = r.value === (CFG.font || "auto"));
+  document.querySelectorAll('input[name="mode"]').forEach(r => r.checked = r.value === CFG.mode);
+  document.querySelectorAll('input[name="feed"]').forEach(r => r.checked = (CFG.feeds || []).includes(r.value));
+  $("weekendMode").checked = CFG.weekendMode !== false; $("ampelSet").checked = CFG.ampel !== false;
+  $("dests").value = CFG.dests ?? DEFAULT_DESTS; $("radarSrc").value = CFG.radarSrc || "dwd";
+  $("nightMode").value = CFG.nightMode || "off"; $("nightFrom").value = CFG.nightFrom || "20:00"; $("nightTo").value = CFG.nightTo || "06:30";
+  $("nightDesign").value = CFG.nightDesign || "appledark"; $("nightTimes").hidden = $("nightMode").value !== "fixed";
+  $("wasteState").textContent = wasteStatus(); $("wasteFile").value = "";
+  $("dlg").showModal();
+}
+$("btnSettings").addEventListener("click", openSettings);
+const pickedValue = name => (document.querySelector('input[name="' + name + '"]:checked') || {}).value;
+["designPicker","scalePicker","fontPicker"].forEach(id => $(id).addEventListener("change", () => applyLook(pickedValue("design") || CFG.design, pickedValue("scale") || CFG.scale, pickedValue("font") || CFG.font)));
+$("proxy").addEventListener("change", () => $("proxyCustom").hidden = $("proxy").value !== "custom");
+$("btnCancel").addEventListener("click", () => { applyLook(effDesign(), CFG.scale, CFG.font); $("dlg").close(); });
+$("dlg").addEventListener("cancel", () => applyLook(effDesign(), CFG.scale, CFG.font));
+$("settingsForm").addEventListener("submit", async e => {
+  e.preventDefault();
+  FIELDS.forEach(k => CFG[k] = $(k).value.trim());
+  CFG.remindMin = Math.min(120, Math.max(1, +CFG.remindMin || 10));
+  CFG.proxy = $("proxy").value === "custom" ? ($("proxyCustom").value.trim() + ($("proxyCustom").value.includes("?") ? "" : "?url=")) : "";
+  CFG.design = pickedValue("design") || CFG.design;
+  CFG.scale = +(pickedValue("scale") || CFG.scale);
+  CFG.font = pickedValue("font") || CFG.font || "auto";
+  CFG.mode = pickedValue("mode") || CFG.mode;
+  const feeds = [...document.querySelectorAll('input[name="feed"]:checked')].map(x => x.value);
+  CFG.feeds = feeds.length ? feeds : DEFAULTS.feeds;
+  CFG.weekendMode = $("weekendMode").checked; CFG.ampel = $("ampelSet").checked; $("ampelToggle").checked = CFG.ampel;
+  CFG.dests = $("dests").value.trim(); CFG.radarSrc = $("radarSrc").value; applyRadarSrc();
+  CFG.nightMode = $("nightMode").value; CFG.nightFrom = $("nightFrom").value || "20:00"; CFG.nightTo = $("nightTo").value || "06:30"; CFG.nightDesign = $("nightDesign").value;
+  store.set("cfg", CFG); $("dlg").close(); applyLook(effDesign(), CFG.scale); lastNight = isNight(); $("setupHint").hidden = !!CFG.homeAddr;
+  await ensureCoords(); lastWhere = here(); updateModeLabel(); applyLayout(); recenterRadar(); refreshAll();
+});
+
+/* ================= Start ================= */
+function refreshAll(){ refreshCalendar(); refreshDepartures(); refreshTrip(); refreshWeather(); refreshNews(); }
+let lastWhere = here(), lastDay = dayKey(new Date()), lastNight = false;
+(async function start(){
+  applyLook(effDesign(), CFG.scale); applyLayout();
+  tickClock(); setInterval(tickClock, 1000);
+  $("wxPlace").textContent = PLACE[here()];
+  $("setupHint").hidden = !!CFG.homeAddr;
+  $("verLink").textContent = "Version " + VERSION;
+  $("verLink").addEventListener("click", showChangelog);
+  $("updOpen").addEventListener("click", () => { store.set("seenVersion", VERSION); $("updBanner").hidden = true; showChangelog(); });
+  $("updClose").addEventListener("click", () => { store.set("seenVersion", VERSION); $("updBanner").hidden = true; });
+  $("clClose").addEventListener("click", () => $("dlgNews").close());
+  const seen = store.get("seenVersion", null);
+  if(seen !== VERSION){ $("updTitle").textContent = "Aktualisiert auf Version " + VERSION; $("updBanner").hidden = false; }
+  setInterval(checkForUpdate, 60 * 1000);
+  updateNotifyBtn(); updateModeLabel(); renderMonth(); renderStrip(); renderWxTimes();
+  await ensureCoords();
+  initRadar(); applyRadarSrc(); refreshAll(); restartNewsTimer(); refreshFerien();
+  setInterval(refreshDepartures, 60 * 1000);
+  setInterval(refreshTrip, 3 * 60 * 1000);
+  setInterval(refreshWeather, 10 * 60 * 1000);
+  setInterval(refreshRadar, 5 * 60 * 1000);
+  setInterval(refreshCalendar, 5 * 60 * 1000);
+  setInterval(refreshNews, 15 * 60 * 1000);
+  setInterval(() => {
+    renderStrip(); checkReminders(); renderWxTimes(); renderTrips(); renderAmpel();
+    if(isNight() !== lastNight && !$("dlg").open){ lastNight = isNight(); applyLook(effDesign(), CFG.scale); updateModeLabel(); }
+    if(here() !== lastWhere){ lastWhere = here(); updateModeLabel(); recenterRadar(); renderWeatherNow(); refreshDepartures(); refreshTrip(); }
+    if(dayKey(new Date()) !== lastDay){ lastDay = dayKey(new Date()); monthOffset = 0; renderMonth(); updateModeLabel(); applyLayout(); refreshFerien(); }
+  }, 30 * 1000);
+})();
+</script>
+</body>
+</html>
