@@ -382,6 +382,16 @@ dialog::backdrop{background:rgba(10,12,15,.5)}
 .field small{color:var(--muted);font-size:.84rem}
 .field input,.field textarea,.field select{background:var(--field);border:var(--bw) solid var(--rule);border-radius:8px;padding:7px 9px;width:100%}
 .dlg .row{display:flex;gap:10px;justify-content:flex-end;margin-top:18px;flex-wrap:wrap;position:sticky;bottom:-18px;background:var(--sheet);padding:10px 0}
+.evrow{display:flex;gap:10px;align-items:center;padding:6px 0;border-bottom:1px dotted var(--rule)}
+.evrow .t{font-family:var(--f-data);min-width:4.5rem}
+.evrow .n{flex:1;min-width:0}
+.evrow .tag{font-size:.7rem;color:var(--muted);border:1px solid var(--rule);border-radius:4px;padding:0 4px;margin-left:4px}
+.evrow button{border:0;background:none;color:var(--signal);font-size:.85rem;text-decoration:underline;cursor:pointer}
+.ev.add{border-style:dashed;box-shadow:none;background:transparent;place-content:center;text-align:center;color:var(--muted);cursor:pointer;font:inherit}
+.ev.add:hover{color:var(--ink);border-color:var(--ink)}
+.month td[data-k]{cursor:pointer}
+.month td[data-k]:hover{outline:2px solid var(--rule);outline-offset:-2px}
+.month td .ed.own{background:var(--c-tram)}
 .btn{border:1.5px solid var(--ink);background:var(--sheet);border-radius:8px;padding:6px 16px}
 .btn.primary{background:var(--ink);color:var(--sheet)}
 
@@ -517,6 +527,23 @@ dialog::backdrop{background:rgba(10,12,15,.5)}
   <span><span id="stand">Stand —</span> · <span class="hint" id="soundHint">Einmal auf das Board klicken, um den Ton zu aktivieren</span></span>
   <span>Wallboard · Wetter: DWD, Open-Meteo · Nachrichten per RSS · Karte © BKG · <button type="button" class="linkish" id="verLink">Version</button></span>
 </footer>
+
+<dialog id="dlgEv">
+<form class="dlg" id="evForm" method="dialog">
+  <h2 id="evTitle">Termin eintragen</h2>
+  <div id="evList"></div>
+  <div class="field"><label for="evName">Was?</label><input id="evName" type="text" required placeholder="z. B. Zahnarzt"></div>
+  <div class="inline-form" style="margin-top:12px;gap:10px">
+    <label for="evDate"><b>Tag</b></label><input id="evDate" type="date" required>
+    <label for="evTime"><b>Uhrzeit</b></label><input id="evTime" type="time">
+    <label for="evEnd">bis</label><input id="evEnd" type="time">
+  </div>
+  <small class="muted" style="display:block;margin-top:4px">Ohne Uhrzeit wird es ein ganztägiger Termin.</small>
+  <div class="field"><label for="evPlace">Wo? (optional)</label><input id="evPlace" type="text"></div>
+  <small class="muted" style="display:block;margin-top:8px">Hier eingetragene Termine stehen nur auf diesem Gerät, nicht im iPhone-Kalender.</small>
+  <div class="row"><button type="button" class="btn" id="evCancel">Schließen</button><button type="submit" class="btn primary">Speichern</button></div>
+</form>
+</dialog>
 
 <dialog id="dlgNews">
   <div class="dlg cl">
@@ -665,8 +692,9 @@ dialog::backdrop{background:rgba(10,12,15,.5)}
 <script>
 "use strict";
 /* ================= Version und automatische Updates ================= */
-const VERSION = "1.9.0";
+const VERSION = "2.0.0";
 const CHANGELOG = [
+  {v:"2.0.0", d:"02.11.2026", items:["Wetter mit Ersatzquelle: Ist Open-Meteo überlastet, springt der Deutsche Wetterdienst (Bright Sky) ein. Die letzte Vorhersage bleibt zusätzlich gespeichert.","Dadurch erscheinen 7-Tage-Vorhersage und Regen-Prozente bei deinen Uhrzeiten wieder zuverlässig.","Eigene Termine eintragen: „+ Termin“ unter „Heute wichtig“ oder einfach auf einen Tag im Monatskalender klicken. Eigene Termine haben einen blauen Punkt."]},
   {v:"1.9.0", d:"02.11.2026", items:["7-Tage-Vorhersage repariert: Bei zu niedriger Kachel wurde sie abgeschnitten. Jede Kachel hat jetzt eine Mindesthöhe, damit nichts verschwindet.","Losgeh-Ampel deutlich kleiner: nur noch eine Zeile mit farbigem Punkt.","Schalter „Ampel“ oben in „Meine Wege“ zum Ein- und Ausblenden (auch in den Einstellungen)."]},
   {v:"1.8.1", d:"02.11.2026", items:["Deine Uhrzeiten beim Wetter als gut lesbare Liste: Regenwahrscheinlichkeit groß, dazu Temperatur und Wetter.","Ort je Uhrzeit (Zuhause/Büro) per Klick umschaltbar."]},
   {v:"1.8.0", d:"02.11.2026", items:["„Meine Wege“: Verbindungen ab Zuhause zu deinen Zielen, jede mit eigener Ampel. Ziele in den Einstellungen änderbar.","Kacheln lassen sich jetzt auch kleiner ziehen; zu viel Inhalt wird in der Kachel gescrollt.","Radar-Hintergrundkarte vom Bundesamt für Kartographie, funktioniert ohne Zugangsschlüssel.","Regenradar wahlweise als eigene Webseite, z. B. wetter.com (Einstellungen → Regenradar)."]},
@@ -807,7 +835,7 @@ function isNight(now = new Date()){
   const m = CFG.nightMode || "off"; if(m === "off") return false;
   const hm = now.getHours() * 60 + now.getMinutes(), toMin = s => { const [h, mi] = String(s || "0:0").split(":").map(Number); return h * 60 + (mi || 0); };
   let from, to;
-  if(m === "sun" && WX.home){ from = toMin(WX.home.daily.sunset[0].slice(11)); to = toMin(WX.home.daily.sunrise[0].slice(11)); }
+  if(m === "sun" && WX.home && WX.home.daily.sunrise[0]){ from = toMin(WX.home.daily.sunset[0].slice(11)); to = toMin(WX.home.daily.sunrise[0].slice(11)); }
   else { from = toMin(CFG.nightFrom || "20:00"); to = toMin(CFG.nightTo || "06:30"); }
   return from > to ? (hm >= from || hm < to) : (hm >= from && hm < to);
 }
@@ -1018,12 +1046,56 @@ function sampleEvents(){
     {id:"s4", title:"Projekt-Abgabe", location:"", start:d(10,0,3), end:d(11,0,3), allDay:false}
   ];
 }
+/* Eigene Termine, nur auf diesem Gerät gespeichert */
+let OWN = store.get("ownEvents", []);
+function ownEvents(){
+  return OWN.map(o => {
+    const [y, m, d] = o.date.split("-").map(Number);
+    const allDay = !o.time;
+    const start = allDay ? new Date(y, m-1, d) : new Date(y, m-1, d, ...o.time.split(":").map(Number));
+    let end;
+    if(allDay){ end = new Date(y, m-1, d+1); }
+    else if(o.end){ end = new Date(y, m-1, d, ...o.end.split(":").map(Number)); if(end <= start) end = new Date(start.getTime() + 3600000); }
+    else end = new Date(start.getTime() + 3600000);
+    return {id: "own-" + o.id, ownId: o.id, own: true, title: o.title, location: o.place || "", start, end, allDay};
+  });
+}
+function mergeOwn(list){ return list.filter(e => !e.own).concat(ownEvents()).sort((a,b) => a.start - b.start); }
+function openEvDialog(k){
+  k = k || dayKey(new Date());
+  const [y, m, d] = k.split("-").map(Number), day = new Date(y, m-1, d);
+  $("evTitle").textContent = day.toLocaleDateString("de-DE", {weekday:"long", day:"numeric", month:"long"});
+  const list = EVENTS.filter(e => calIsSample ? e.own : true).filter(e => e.allDay ? (dayKey(e.start) <= k && k < dayKey(e.end)) || dayKey(e.start) === k : dayKey(e.start) === k);
+  $("evList").innerHTML = list.length ? list.map(e => '<div class="evrow"><span class="t">' + (e.allDay ? "ganztags" : fmtTime(e.start)) + '</span><span class="n">' + esc(e.title) +
+    (e.location ? ' <span class="muted">· ' + esc(e.location) + "</span>" : "") + (e.own ? "" : '<span class="tag">iPhone</span>') + "</span>" +
+    (e.own ? '<button type="button" data-delown="' + e.ownId + '">löschen</button>' : "") + "</div>").join("") : '<p class="note">An diesem Tag noch keine Termine.</p>';
+  $("evDate").value = k; $("evTime").value = ""; $("evEnd").value = ""; $("evName").value = ""; $("evPlace").value = "";
+  if(!$("dlgEv").open) $("dlgEv").showModal();
+  setTimeout(() => $("evName").focus(), 30);
+}
+function ownChanged(){ store.set("ownEvents", OWN); if(calIsSample && OWN.length){ EVENTS = []; calIsSample = false; } EVENTS = mergeOwn(EVENTS); renderStrip(); renderMonth(); }
+$("evForm").addEventListener("submit", e => {
+  e.preventDefault();
+  const title = $("evName").value.trim(), date = $("evDate").value; if(!title || !date) return;
+  OWN.push({id: Date.now().toString(36), title, date, time: $("evTime").value, end: $("evEnd").value, place: $("evPlace").value.trim()});
+  ownChanged(); openEvDialog(date);
+});
+$("evList").addEventListener("click", e => {
+  const id = e.target.dataset.delown; if(!id) return;
+  OWN = OWN.filter(o => o.id !== id); ownChanged(); openEvDialog($("evDate").value);
+});
+$("evCancel").addEventListener("click", () => $("dlgEv").close());
+$("month").addEventListener("click", e => { const td = e.target.closest("td[data-k]"); if(td) openEvDialog(td.dataset.k); });
+$("strip").addEventListener("click", e => { if(e.target.closest(".js-addev")) openEvDialog(); });
+
 async function refreshCalendar(){
   try{
     if(CFG.icsCal && !CFG.proxy){ EVENTS = sampleEvents(); calIsSample = true; calError = "Kalender: Google-Skript fehlt noch"; }
     else if(CFG.icsCal){ EVENTS = await loadIcs(CFG.icsCal); calIsSample = false; calError = false; }
+    else if(OWN.length){ EVENTS = []; calIsSample = false; }
     else { EVENTS = sampleEvents(); calIsSample = true; }
   }catch(e){ calError = true; console.warn(e); }
+  EVENTS = mergeOwn(EVENTS);
   renderStrip(); renderMonth();
 }
 function todaysEvents(){
@@ -1037,11 +1109,12 @@ function renderStrip(){
   const shown = upcoming.slice(0, 4);
   while(shown.length < 4 && past.length) shown.unshift(past.pop());
   shown.sort((a,b) => a.start - b.start);
-  let html = '<div class="lbl"><b>Heute wichtig</b><span>' + (calError ? '<span class="sig">' + (typeof calError === "string" ? calError : "Kalender nicht erreichbar") + '</span>' :
+  let html = '<div class="lbl"><b>Heute wichtig</b><button type="button" class="linkish js-addev" style="font-size:.85rem;display:block">+ Termin</button><span>' + (calError ? '<span class="sig">' + (typeof calError === "string" ? calError : "Kalender nicht erreichbar") + '</span>' :
     calIsSample ? 'Beispiele – Kalender unter „Einstellungen“ verbinden' : "Erinnerung " + CFG.remindMin + " min vorher") + "</span></div>";
+  let addShown = false;
   for(let i = 0; i < 4; i++){
     const e = shown[i];
-    if(!e){ html += '<div class="ev free">Frei</div>'; continue; }
+    if(!e){ html += addShown ? '<div class="ev free">Frei</div>' : '<button type="button" class="ev add js-addev">+ Termin eintragen</button>'; addShown = true; continue; }
     const cls = e.allDay ? "" : e.end <= now ? "past" : e.start <= now ? "now" : "";
     const mins = Math.round((e.start - now) / 60000);
     const t = e.allDay ? "ganztags" : fmtTime(e.start) + (cls === "now" ? " · läuft" : mins > 0 && mins <= 60 ? " · in " + mins + " min" : "");
@@ -1166,7 +1239,8 @@ $("mNext").addEventListener("click", () => { monthOffset++; renderMonth(); });
 function renderMonth(){
   const now = new Date(), base = new Date(now.getFullYear(), now.getMonth() + monthOffset, 1), y = base.getFullYear(), m = base.getMonth();
   const vacs = vacations();
-  const evDays = new Set(calIsSample ? [] : EVENTS.map(e => dayKey(e.start)));
+  const evDays = new Set(EVENTS.filter(e => !calIsSample || e.own).map(e => dayKey(e.start)));
+  const ownDays = new Set(EVENTS.filter(e => e.own).map(e => dayKey(e.start)));
   $("monthName").textContent = base.toLocaleDateString("de-DE", {month:"long", year:"numeric"});
   $("mKw").textContent = "KW " + isoWeek(now);
   const start = new Date(base); start.setDate(1 - ((base.getDay()+6)%7));
@@ -1187,8 +1261,8 @@ function renderMonth(){
       if(k === dayKey(now)) cls.push("today");
       const v = vacs.find(v => d >= v.from && d <= v.to);
       const tip = [hol, v ? v.name : ""].filter(Boolean).join(", ");
-      html += '<td class="' + cls.join(" ") + '"' + (tip ? ' title="' + esc(tip) + '"' : "") + ">" + d.getDate() +
-        (v ? '<span class="vb" style="background:' + v.color + '"></span>' : "") + (evDays.has(k) && d.getMonth() === m ? '<span class="ed"></span>' : "") + "</td>";
+      html += '<td data-k="' + k + '" class="' + cls.join(" ") + '"' + ' title="' + esc((tip ? tip + " · " : "") + "Klicken: Termine ansehen oder eintragen") + '">' + d.getDate() +
+        (v ? '<span class="vb" style="background:' + v.color + '"></span>' : "") + (evDays.has(k) && d.getMonth() === m ? '<span class="ed' + (ownDays.has(k) ? " own" : "") + '"></span>' : "") + "</td>";
       d.setDate(d.getDate()+1);
     }
     html += "</tr>";
@@ -1418,7 +1492,6 @@ function renderWeatherNow(){
   const probs = f.hourly.precipitation_probability.slice(i0, i0+12), hrs = f.hourly.time.slice(i0, i0+12);
   $("wxHours").innerHTML = probs.map((p, i) => '<div class="' + levelClass(p) + '" style="height:' + Math.max(8, p) + '%" title="' + hrs[i].slice(11) + " Uhr: " + p + ' % Regen"></div>').join("");
   $("wxHx").innerHTML = hrs.map((h, i) => '<span class="' + (i === 0 ? "cur" : "") + '">' + (+h.slice(11,13)) + "</span>").join("");
-  $("fcPlace").textContent = PLACE[where];
   renderForecast(f);
 }
 function renderForecast(f){
@@ -1437,7 +1510,7 @@ let FACTS = {pollen:null, air:null};
 function renderFacts(){
   const f = WX[here()]; const out = [];
   if(FACTS.pollen) out.push(FACTS.pollen);
-  if(f){ const uv = f.daily.uv_index_max[0]; out.push('<span class="' + (uv >= 8 ? "hi" : uv >= 6 ? "mid" : "") + '">UV ' + Math.round(uv) + " " + uvText(uv) + "</span>"); }
+  if(f && f.daily.uv_index_max[0] != null){ const uv = f.daily.uv_index_max[0]; out.push('<span class="' + (uv >= 8 ? "hi" : uv >= 6 ? "mid" : "") + '">UV ' + Math.round(uv) + " " + uvText(uv) + "</span>"); }
   if(FACTS.air) out.push(FACTS.air);
   $("wxFacts").innerHTML = out.join("");
 }
@@ -1451,12 +1524,81 @@ function renderAlerts(){
     (a.expires ? " · bis " + new Date(a.expires).toLocaleString("de-DE", {weekday:"short", hour:"2-digit", minute:"2-digit"}) : "") + "</small></span></div>"));
   $("wxAlerts").innerHTML = items.join("");
 }
+/* ---- Wetter: Open-Meteo, bei Ausfall Bright Sky (DWD), sonst letzter gespeicherter Stand ---- */
+function sunTimes(date, lat, lon){
+  const rad = Math.PI / 180, day = Math.floor((Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()) - Date.UTC(date.getFullYear(), 0, 0)) / 86400000);
+  const g = 2 * Math.PI / 365 * (day - 1);
+  const eq = 229.18 * (0.000075 + 0.001868 * Math.cos(g) - 0.032077 * Math.sin(g) - 0.014615 * Math.cos(2*g) - 0.040849 * Math.sin(2*g));
+  const decl = 0.006918 - 0.399912 * Math.cos(g) + 0.070257 * Math.sin(g) - 0.006758 * Math.cos(2*g) + 0.000907 * Math.sin(2*g);
+  const ha = Math.acos(Math.cos(90.833 * rad) / (Math.cos(lat * rad) * Math.cos(decl)) - Math.tan(lat * rad) * Math.tan(decl)) / rad;
+  const toLocal = mins => { const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0) + mins * 60000); return dayKey(d) + "T" + pad(d.getHours()) + ":" + pad(d.getMinutes()); };
+  return {rise: toLocal(720 - 4 * (lon + ha) - eq), set: toLocal(720 - 4 * (lon - ha) - eq)};
+}
+const BS_CODE = {"clear-day":0, "clear-night":0, "partly-cloudy-day":2, "partly-cloudy-night":2, cloudy:3, fog:45, wind:3, rain:61, sleet:66, snow:71, hail:96, thunderstorm:95};
+function bsCode(x){
+  let c = BS_CODE[x.icon] ?? 3;
+  if(x.condition === "rain" && c < 51) c = 61;
+  if(c === 61 && (x.precipitation || 0) >= 2.5) c = 63;
+  if(x.condition === "snow") c = 71;
+  if(x.condition === "thunderstorm") c = 95;
+  return c;
+}
+async function fetchBrightSky(p){
+  const end = new Date(); end.setDate(end.getDate() + 8);
+  const [w, c] = await Promise.all([
+    getJSON("https://api.brightsky.dev/weather?lat=" + p.lat + "&lon=" + p.lon + "&tz=Europe/Berlin&date=" + dayKey(new Date()) + "&last_date=" + dayKey(end)),
+    getJSON("https://api.brightsky.dev/current_weather?lat=" + p.lat + "&lon=" + p.lon + "&tz=Europe/Berlin").catch(() => null)
+  ]);
+  const H = (w.weather || []).filter(x => x.timestamp);
+  if(!H.length) throw new Error("Bright Sky: keine Daten");
+  const hourly = {time:[], temperature_2m:[], precipitation_probability:[], precipitation:[], weather_code:[], visibility:[]};
+  H.forEach(x => {
+    hourly.time.push(x.timestamp.slice(0, 16)); hourly.temperature_2m.push(x.temperature ?? 0);
+    hourly.precipitation_probability.push(x.precipitation_probability ?? (x.precipitation > 0 ? 80 : 0));
+    hourly.precipitation.push(x.precipitation ?? 0); hourly.weather_code.push(bsCode(x)); hourly.visibility.push(x.visibility ?? 20000);
+  });
+  const daily = {time:[], weather_code:[], temperature_2m_max:[], temperature_2m_min:[], precipitation_probability_max:[], precipitation_sum:[], uv_index_max:[], sunrise:[], sunset:[]};
+  for(let i = 0; i < 7; i++){
+    const d = new Date(); d.setDate(d.getDate() + i); const k = dayKey(d);
+    const idx = hourly.time.map((t, j) => t.startsWith(k) ? j : -1).filter(j => j >= 0);
+    if(!idx.length) break;
+    const day = idx.filter(j => { const h = +hourly.time[j].slice(11, 13); return h >= 8 && h <= 20; });
+    const pick = a => idx.map(j => a[j]);
+    const sum = pick(hourly.precipitation).reduce((a, b) => a + b, 0);
+    const codes = (day.length ? day : idx).map(j => hourly.weather_code[j]);
+    const worst = Math.max(...codes.filter(c => c >= 45));
+    const common = codes.sort((a, b) => codes.filter(x => x === b).length - codes.filter(x => x === a).length)[0];
+    const st = sunTimes(d, p.lat, p.lon);
+    daily.time.push(k); daily.temperature_2m_max.push(Math.max(...pick(hourly.temperature_2m))); daily.temperature_2m_min.push(Math.min(...pick(hourly.temperature_2m)));
+    daily.precipitation_probability_max.push(Math.max(...pick(hourly.precipitation_probability))); daily.precipitation_sum.push(sum);
+    daily.weather_code.push(sum >= 1 && isFinite(worst) ? worst : common); daily.uv_index_max.push(null); daily.sunrise.push(st.rise); daily.sunset.push(st.set);
+  }
+  const now = new Date(), hk = hourKey(now), i0 = Math.max(0, hourly.time.indexOf(hk)), cw = c && c.weather;
+  return {source: "DWD (Bright Sky)", hourly, daily, current: {
+    time: hk, temperature_2m: cw ? cw.temperature : hourly.temperature_2m[i0], apparent_temperature: cw ? cw.temperature : hourly.temperature_2m[i0],
+    weather_code: cw ? bsCode({...cw, precipitation: cw.precipitation_60}) : hourly.weather_code[i0],
+    wind_speed_10m: cw ? (cw.wind_speed_10 ?? cw.wind_speed_60 ?? 0) : 0, relative_humidity_2m: cw ? cw.relative_humidity : null,
+    visibility: cw ? (cw.visibility ?? 20000) : hourly.visibility[i0]}};
+}
+async function fetchWeather(p){
+  try{ const f = await getJSON(forecastUrl(p), 10000); f.source = "Open-Meteo"; return f; }
+  catch(e){ console.warn("Open-Meteo nicht erreichbar, nehme Bright Sky:", e.message); }
+  return fetchBrightSky(p);
+}
 async function refreshWeather(){
+  const cache = store.get("wxcache", null);
   try{
-    const [fh, fw] = await Promise.all([getJSON(forecastUrl(CFG.home)), getJSON(forecastUrl(CFG.work)).catch(() => null)]);
-    WX.home = fh; WX.work = fw || fh;
-    const s = WX.home.daily; $("kw").title = "Sonne " + s.sunrise[0].slice(11) + "–" + s.sunset[0].slice(11);
-  }catch(e){ console.warn(e); $("wxHeadTxt").textContent = "Wetterdaten gerade nicht erreichbar."; }
+    const fh = await fetchWeather(CFG.home);
+    const fw = await fetchWeather(CFG.work).catch(() => fh);
+    WX.home = fh; WX.work = fw; WX.stale = false;
+    store.set("wxcache", {at: Date.now(), home: fh, work: fw});
+  }catch(e){
+    console.warn(e);
+    if(cache && Date.now() - cache.at < 24 * 3600000){ WX.home = cache.home; WX.work = cache.work; WX.stale = new Date(cache.at); }
+    else $("wxHeadTxt").textContent = "Wetterdaten gerade nicht erreichbar. Neuer Versuch in 10 Minuten.";
+  }
+  if(WX.home){ const s = WX.home.daily; if(s.sunrise[0]) $("kw").title = "Sonne " + s.sunrise[0].slice(11) + "–" + s.sunset[0].slice(11); }
+  $("fcPlace").textContent = PLACE[here()] + (WX.home ? " · " + (WX.stale ? "Stand " + fmtTime(WX.stale) : WX[here()].source) : "");
   renderWeatherNow(); renderWxTimes(); renderFacts(); renderAlerts(); renderAmpel();
   if(isNight() !== lastNight){ lastNight = isNight(); applyLook(effDesign(), CFG.scale); updateModeLabel(); }
   const p = CFG[here()];
@@ -1635,6 +1777,7 @@ let lastWhere = here(), lastDay = dayKey(new Date()), lastNight = false;
   setInterval(checkForUpdate, 60 * 1000);
   updateNotifyBtn(); updateModeLabel(); renderMonth(); renderStrip(); renderWxTimes();
   await ensureCoords();
+  { const c = store.get("wxcache", null); if(c && Date.now() - c.at < 24*3600000){ WX.home = c.home; WX.work = c.work; WX.stale = new Date(c.at); renderWeatherNow(); renderWxTimes(); } }
   initRadar(); applyRadarSrc(); refreshAll(); restartNewsTimer(); refreshFerien();
   setInterval(refreshDepartures, 60 * 1000);
   setInterval(refreshTrip, 3 * 60 * 1000);
