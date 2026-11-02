@@ -1,1 +1,1 @@
-window.BOARD_LATEST = "1.9.0";
+window.BOARD_LATEST = "2.0.0";
